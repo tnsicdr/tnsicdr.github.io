@@ -15,9 +15,9 @@ export const PostExcerpt = (props: IPostExcerptProps) => {
         <Typography>
             <article>
                 <Link to={slug}>
-                    <h1>{title}</h1>
+                    <h2>{title}</h2>
                 </Link>
-                <h2>
+                <h3>
                     {date.toLocaleString([], {
                         year: 'numeric',
                         month: 'numeric',
@@ -25,7 +25,7 @@ export const PostExcerpt = (props: IPostExcerptProps) => {
                         hour: '2-digit',
                         minute: '2-digit',
                     })}
-                </h2>
+                </h3>
                 {body}
             </article>
         </Typography>

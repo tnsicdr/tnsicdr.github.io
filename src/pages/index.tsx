@@ -37,11 +37,11 @@ const IndexPage = ({ data }) => {
         <IndexContainer>
             <GatsbyLayout>
                 <Feature>
-                    <h1>Latest Post</h1>
+                    <h2>Latest Post</h2>
                     <article>
-                        <h2>
+                        <h3>
                             <Link to={slug}>{post.title}</Link>
-                        </h2>
+                        </h3>
                         {content}
                     </article>
                     <div className="feature-actions">
