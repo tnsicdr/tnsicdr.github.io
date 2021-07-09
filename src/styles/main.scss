@@ -103,7 +103,12 @@ img {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        width: 100%;
+
+        @media screen and (min-width: $breakpoint-large) {
+            width: 100%;
+            max-width: 992px;
+            margin: 0 auto;
+        }
     }
 
     nav {
