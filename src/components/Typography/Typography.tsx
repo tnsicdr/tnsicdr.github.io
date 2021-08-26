@@ -1,25 +1,31 @@
-import styled from '@emotion/styled';
 import Prism from 'prismjs';
 import { useEffect } from 'react';
 import { PropsWithChildren } from 'react';
-import { burundy, linkColor } from '../../shared/colors';
+import tw, { styled } from 'twin.macro';
 
 interface ITypographyProps {}
 
 const StyledContainer = styled.div`
     h1 {
+        ${tw`pb-2`}
+        font-weight: bold;
+
         &::before {
             content: '# ';
         }
     }
 
     h2 {
+        ${tw`pb-2`}
+        font-weight: bold;
+
         &::before {
             content: '## ';
         }
     }
 
     h3 {
+        ${tw`pb-2`}
         &::before {
             content: '### ';
         }
@@ -37,8 +43,6 @@ const StyledContainer = styled.div`
     a,
     a:visited,
     a:hover {
-        color: ${linkColor};
-        text-decoration: none;
     }
 `;
 

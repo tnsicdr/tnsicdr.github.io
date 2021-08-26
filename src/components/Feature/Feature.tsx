@@ -1,6 +1,7 @@
 import { PropsWithChildren } from "react";
 import styled from '@emotion/styled';
 import { linkColor } from "../../shared/colors";
+import { Typography } from "../Typography/Typography";
 
 const FeatureContainer = styled.div`
     background-color: rgba(0, 0, 0, 0.05);
@@ -8,8 +9,6 @@ const FeatureContainer = styled.div`
     border-radius: 4px;
 
     a, a:visited, a:hover {
-        color: ${linkColor};
-        text-decoration: none;
     }
 `;
 
@@ -20,7 +19,9 @@ export const Feature = (props: PropsWithChildren<IFeatureProps>) => {
 
     return (
         <FeatureContainer>
-            {children}
+            <Typography>
+                {children}
+            </Typography>
         </FeatureContainer>
     );
 }

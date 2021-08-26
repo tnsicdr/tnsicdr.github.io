@@ -1,8 +1,9 @@
 import { graphql, Link, useStaticQuery } from 'gatsby';
 import { PropsWithChildren } from 'react';
+import { NavigationHeader } from '../NavigationHeader/navigationHeader';
 
 interface ILayoutProps {
-    siteTitle: JSX.Element | string;
+    siteTitle: JSX.Element;
     navList?: JSX.Element[];
 }
 
@@ -10,35 +11,13 @@ export const Layout = (props: PropsWithChildren<ILayoutProps>) => {
     const { children, siteTitle, navList } = props;
 
     return (
-        <div className="layout-wrapper">
-            <div className="layout-header">
-                <div className="container">
-                    {siteTitle}
-                    <nav className="tablet-up">
-                        <ul>
-                            {navList?.map((navElm, idx) => {
-                                return <li key={idx}>{navElm}</li>;
-                            })}
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <div className="layout-nav mobile-only">
-                <div className="container">
-                    <nav>
-                        <ul>
-                            {navList?.map((navElm, idx) => {
-                                return <li key={idx}>{navElm}</li>;
-                            })}
-                        </ul>
-                    </nav>
-                </div>
-            </div>
-            <main>
-                <div className="container">{children}</div>
+        <div className="flex flex-col w-full h-screen justify-between bg-white">
+            <NavigationHeader siteLogo={siteTitle} navList={navList} />
+            <main className="mb-auto">
+                <div className="container mx-auto p-4">{children}</div>
             </main>
-            <footer className="layout-footer">
-                <div className="container">
+            <footer>
+                <div className="container mx-auto p-2">
                     Copyright &copy; {new Date().getFullYear()}
                 </div>
             </footer>

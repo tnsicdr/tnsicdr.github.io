@@ -14,7 +14,7 @@ module.exports = {
             },
         },
         'gatsby-plugin-emotion',
-        'gatsby-plugin-sass',
+        'gatsby-plugin-postcss',
         'gatsby-plugin-image',
         'gatsby-plugin-react-helmet',
         //"gatsby-plugin-sitemap",

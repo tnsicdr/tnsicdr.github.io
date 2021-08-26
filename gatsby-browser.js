@@ -2,8 +2,7 @@
 import '@fontsource/source-sans-pro';
 import '@fontsource/source-code-pro';
 
-// normalize
-import 'normalize.css';
+// tailwind base
+import "tailwindcss/dist/base.min.css";
 
-// styles
-import './src/styles/main.scss';
+import "./src/styles/index.css";
