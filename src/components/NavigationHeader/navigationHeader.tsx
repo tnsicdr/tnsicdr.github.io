@@ -1,8 +1,10 @@
 import tw, { styled } from 'twin.macro';
+import { ILink } from '../../interfaces/link';
+import { Link } from '../Link/link';
 
 interface INavigationHeaderProps {
     siteLogo?: JSX.Element;
-    navList?: Array<JSX.Element>;
+    linkList?: Array<ILink>;
 }
 
 const Wrapper = styled.div`
@@ -14,7 +16,7 @@ const Wrapper = styled.div`
 `;
 
 export const NavigationHeader = (props: INavigationHeaderProps) => {
-    const { siteLogo, navList } = props;
+    const { siteLogo, linkList } = props;
     return (
         <Wrapper className="border-b p-2">
             <div className="container mx-auto flex flex-row justify-between">
@@ -23,9 +25,11 @@ export const NavigationHeader = (props: INavigationHeaderProps) => {
                     button
                 </button>
                 <nav className="desktop hidden md:block">
-                        {navList && navList.map((navItem, index) => (
+                        {linkList && linkList.map((link, index) => (
                             <span key={index}>
-                                {navItem}
+                                <Link to={link.to}>
+                                    {link.label}
+                                </Link>
                             </span>
                         ))}
                 </nav>

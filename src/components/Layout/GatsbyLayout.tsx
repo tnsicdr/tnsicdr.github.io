@@ -8,11 +8,20 @@ const titleComponent = (title: string) => {
     return <Link to="/">{title}</Link>;
 };
 
-const navList = [
-    <Link to="/posts/">Posts</Link>,
-    <Link to="/page/resources">Resources</Link>,
-    <Link to="/page/about">About</Link>
-];
+const linkList = [
+    {
+        to: '/posts/',
+        label: 'Posts'
+    },
+    {
+        to: '/page/resources',
+        label: 'Resources',
+    },
+    {
+        to: '/page/about',
+        label: 'About'
+    }
+]
 
 export const GatsbyLayout = (props: PropsWithChildren<IGatsbyLayoutProps>) => {
     const { children } = props;
@@ -31,7 +40,7 @@ export const GatsbyLayout = (props: PropsWithChildren<IGatsbyLayoutProps>) => {
     const siteTitle = data.wp.generalSettings.title;
 
     return (
-        <Layout siteTitle={titleComponent(siteTitle)} navList={navList}>
+        <Layout siteTitle={titleComponent(siteTitle)} headerLinks={linkList}>
             {children}
         </Layout>
     );
