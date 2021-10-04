@@ -7,9 +7,8 @@ interface ITypographyProps {}
 
 const StyledContainer = styled.div`
     ${tw`prose`}
-    
-    max-width: 100%;
 
+    max-width: 100%;
 `;
 
 /**

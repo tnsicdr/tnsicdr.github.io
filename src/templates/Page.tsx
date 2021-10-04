@@ -10,15 +10,13 @@ const pageTemplate = ({ data: { page } }) => {
 
     return (
         <GatsbyLayout>
-        <Page title={title} body={content} />
+            <Page title={title} body={content} />
         </GatsbyLayout>
     );
-}
+};
 
 export const pageQuery = graphql`
-    query PageQuery(
-        $id: String!
-    ) {
+    query PageQuery($id: String!) {
         page: wpPage(id: { eq: $id }) {
             id
             title

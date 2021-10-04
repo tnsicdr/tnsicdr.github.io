@@ -1,4 +1,4 @@
-import { Typography } from "../Typography/Typography";
+import { Typography } from '../Typography/Typography';
 
 interface IPageProps {
     title: string;
@@ -10,9 +10,7 @@ export const Page = (props: IPageProps) => {
 
     return (
         <div>
-            <Typography>
-                {body}
-            </Typography>
+            <Typography>{body}</Typography>
         </div>
     );
 };

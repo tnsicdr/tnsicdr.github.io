@@ -11,7 +11,7 @@ const titleComponent = (title: string) => {
 const linkList = [
     {
         to: '/posts/',
-        label: 'Posts'
+        label: 'Posts',
     },
     {
         to: '/page/resources',
@@ -19,9 +19,9 @@ const linkList = [
     },
     {
         to: '/page/about',
-        label: 'About'
-    }
-]
+        label: 'About',
+    },
+];
 
 export const GatsbyLayout = (props: PropsWithChildren<IGatsbyLayoutProps>) => {
     const { children } = props;

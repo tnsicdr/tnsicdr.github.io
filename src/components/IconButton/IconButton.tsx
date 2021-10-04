@@ -7,11 +7,10 @@ interface IIconButtonsProp {
     icon?: Icon;
 }
 
-const StyledButton = styled.button`
-`;
+const StyledButton = styled.button``;
 
 export const IconButton = (props: IIconButtonsProp) => {
-    const { icon} = props;
+    const { icon } = props;
 
     return <StyledButton>{icon}</StyledButton>;
 };

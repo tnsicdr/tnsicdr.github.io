@@ -6,6 +6,7 @@ included in this file for reference.
 ## Plugins
 
 ### @tailwindcss/typography
+
 This plugin uses the `prose` classes to add sensible typography styles
 
 | Class       |  Body font size |
@@ -15,4 +16,3 @@ This plugin uses the `prose` classes to add sensible typography styles
 | `prose-lg`  | 1.125rem (18px) |
 | `prose-xl`  |  1.25rem (20px) |
 | `prose-2xl` |   1.5rem (24px) |
-

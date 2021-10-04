@@ -1,13 +1,13 @@
 {
-  "compilerOptions": {
-    "target": "ESNext",
-    "module": "ESNext",
-    "lib": ["dom"],
-    "jsx": "preserve",
-    "moduleResolution": "node",
-    "noEmit": true,
-    "allowSyntheticDefaultImports": true
-  },
-  "include": ["src/**/*", "types"],
-  "exclude": ["node_modules"],
+    "compilerOptions": {
+        "target": "ESNext",
+        "module": "ESNext",
+        "lib": ["dom"],
+        "jsx": "preserve",
+        "moduleResolution": "node",
+        "noEmit": true,
+        "allowSyntheticDefaultImports": true
+    },
+    "include": ["src/**/*", "types"],
+    "exclude": ["node_modules"]
 }

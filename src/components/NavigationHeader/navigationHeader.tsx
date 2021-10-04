@@ -21,15 +21,12 @@ export const NavigationHeader = (props: INavigationHeaderProps) => {
         <Wrapper className="border-b p-2">
             <div className="container mx-auto flex flex-row justify-between">
                 <div>{siteLogo}</div>
-                <button className="block md:hidden">
-                    button
-                </button>
+                <button className="block md:hidden">button</button>
                 <nav className="desktop hidden md:block">
-                        {linkList && linkList.map((link, index) => (
+                    {linkList &&
+                        linkList.map((link, index) => (
                             <span key={index}>
-                                <Link to={link.to}>
-                                    {link.label}
-                                </Link>
+                                <Link to={link.to}>{link.label}</Link>
                             </span>
                         ))}
                 </nav>
