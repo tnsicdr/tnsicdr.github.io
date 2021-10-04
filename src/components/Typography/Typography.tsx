@@ -6,44 +6,10 @@ import tw, { styled } from 'twin.macro';
 interface ITypographyProps {}
 
 const StyledContainer = styled.div`
-    h1 {
-        ${tw`pb-2`}
-        font-weight: bold;
+    ${tw`prose`}
+    
+    max-width: 100%;
 
-        &::before {
-            content: '# ';
-        }
-    }
-
-    h2 {
-        ${tw`pb-2`}
-        font-weight: bold;
-
-        &::before {
-            content: '## ';
-        }
-    }
-
-    h3 {
-        ${tw`pb-2`}
-        &::before {
-            content: '### ';
-        }
-    }
-
-    code {
-        font-family: 'Source Code Pro', monospace;
-    }
-
-    :not(pre) > code[class*='language-'],
-    pre[class*='language-'] {
-        border-radius: 8px;
-    }
-
-    a,
-    a:visited,
-    a:hover {
-    }
 `;
 
 /**
