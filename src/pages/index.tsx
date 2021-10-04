@@ -3,6 +3,8 @@ import { graphql, Link, useStaticQuery } from 'gatsby';
 import { Feature } from '../components/Feature/Feature';
 import parse from 'html-react-parser';
 import styled from '@emotion/styled';
+import { Typography } from '../components/Typography/Typography';
+import { PostExcerpt } from '../components/PostExcerpt/PostExcerpt';
 
 const IndexContainer = styled.div`
     .feature-actions {
@@ -18,8 +20,12 @@ const IndexContainer = styled.div`
 
 const IndexPage = ({ data }) => {
     const post = data.allWpPost.nodes[0];
-    const slug = `/post/${String(post.slug)}`;
+    
     const excerptContent = parse(post.excerpt);
+
+    const title = String(post.title);
+    const date = new Date(post.date);
+    const slug = `/post/${String(post.slug)}`;
 
     let content;
 
@@ -36,20 +42,20 @@ const IndexPage = ({ data }) => {
     return (
         <IndexContainer>
             <GatsbyLayout>
-                <Feature>
+                <Typography>
                     <h2>Latest Post</h2>
-                    <article>
-                        <h3>
-                            <Link to={slug}>{post.title}</Link>
-                        </h3>
-                        {content}
-                    </article>
+                    <PostExcerpt
+                        title={title}
+                        slug={slug}
+                        date={date}
+                        body={content}
+                    />
                     <div className="feature-actions">
                         <Link className="more-posts" to="/posts">
                             More Posts
                         </Link>
                     </div>
-                </Feature>
+                </Typography>
             </GatsbyLayout>
         </IndexContainer>
     );
@@ -60,8 +66,9 @@ export const query = graphql`
         allWpPost(limit: 1) {
             nodes {
                 excerpt
-                title
                 slug
+                date
+                title
             }
         }
     }
