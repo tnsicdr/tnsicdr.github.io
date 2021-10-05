@@ -1,3 +1,5 @@
+import { faBars, faHamburger } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import tw, { styled } from 'twin.macro';
 import { ILink } from '../../interfaces/link';
 import { Link } from '../Link/link';
@@ -21,8 +23,7 @@ export const NavigationHeader = (props: INavigationHeaderProps) => {
         <Wrapper className="border-b p-2">
             <div className="container mx-auto flex flex-row justify-between">
                 <div>{siteLogo}</div>
-                <button className="block md:hidden">button</button>
-                <nav className="desktop hidden md:block">
+                <nav className="desktop md:block">
                     {linkList &&
                         linkList.map((link, index) => (
                             <span key={index}>

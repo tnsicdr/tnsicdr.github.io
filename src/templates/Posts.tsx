@@ -7,8 +7,16 @@ import { PostExcerpt } from '../components/PostExcerpt/PostExcerpt';
 
 const Wrapper = styled.div`
     .pagination-controls {
-        ${tw`flex flex-row justify-between prose`}
+        ${tw`flex flex-row justify-center prose`}
         max-width: 100%;
+
+        div {
+            ${tw`px-2`}
+        }
+
+        a {
+            ${tw`hover:text-gray-400`}
+        }
     }
 `;
 
@@ -56,10 +64,16 @@ const PostsTemplate = ({
                     );
                 })}
                 <div className="pagination-controls">
-                    {previousPagePath && (
-                        <Link to={previousPagePath}>Previous Page</Link>
-                    )}
-                    {nextPagePath && <Link to={nextPagePath}>Next Page</Link>}
+                    <div>
+                        {previousPagePath && (
+                            <Link to={previousPagePath}>Previous Page</Link>
+                        )}
+                    </div>
+                    <div>
+                        {nextPagePath && (
+                            <Link to={nextPagePath}>Next Page</Link>
+                        )}
+                    </div>
                 </div>
             </Wrapper>
         </GatsbyLayout>
