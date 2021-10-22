@@ -3,6 +3,7 @@ import React from 'react';
 import { Post } from '../components/Post/Post';
 import parse from 'html-react-parser';
 import { GatsbyLayout } from '../components/Layout/GatsbyLayout';
+import { SEO } from '../components/Seo/seo';
 
 const postTemplate = ({ data: { previous, next, post } }) => {
     const title = String(post.title);
@@ -16,6 +17,7 @@ const postTemplate = ({ data: { previous, next, post } }) => {
 
     return (
         <GatsbyLayout>
+            <SEO title={title} />
             <Post
                 featuredImage={featuredImage}
                 title={title}

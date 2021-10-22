@@ -3,6 +3,7 @@ import parse from 'html-react-parser';
 import { Page } from '../components/Page/Page';
 import { GatsbyLayout } from '../components/Layout/GatsbyLayout';
 import { graphql } from 'gatsby';
+import { SEO } from '../components/Seo/seo';
 
 const pageTemplate = ({ data: { page } }) => {
     const title = String(page.title);
@@ -10,6 +11,7 @@ const pageTemplate = ({ data: { page } }) => {
 
     return (
         <GatsbyLayout>
+            <SEO title={title} />
             <Page title={title} body={content} />
         </GatsbyLayout>
     );

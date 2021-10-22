@@ -4,6 +4,7 @@ import tw, { styled } from 'twin.macro';
 import { GatsbyLayout } from '../components/Layout/GatsbyLayout';
 import { Link } from '../components/Link/link';
 import { PostExcerpt } from '../components/PostExcerpt/PostExcerpt';
+import { SEO } from '../components/Seo/seo';
 
 const Wrapper = styled.div`
     .pagination-controls {
@@ -31,6 +32,7 @@ const PostsTemplate = ({
 
     return (
         <GatsbyLayout>
+            <SEO />
             <Wrapper>
                 {posts.map((post, index) => {
                     const title = String(post.title);

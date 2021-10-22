@@ -4,7 +4,7 @@ require('dotenv').config({
 
 module.exports = {
     siteMetadata: {
-        title: 'code.tnsi',
+        title: 'code.tnsi.me',
     },
     plugins: [
         {
