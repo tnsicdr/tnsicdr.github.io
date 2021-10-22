@@ -11,8 +11,10 @@ interface INavigationHeaderProps {
 
 const Wrapper = styled.div`
     nav.desktop {
-        span + span {
-            ${tw`ml-4`}
+        ul {
+            li + li {
+                ${tw`ml-4`}
+            }
         }
     }
 `;
@@ -24,12 +26,16 @@ export const NavigationHeader = (props: INavigationHeaderProps) => {
             <div className="container mx-auto flex flex-row justify-between">
                 <div>{siteLogo}</div>
                 <nav className="desktop md:block">
-                    {linkList &&
-                        linkList.map((link, index) => (
-                            <span key={index}>
-                                <Link to={link.to}>{link.label}</Link>
-                            </span>
-                        ))}
+                    <ul className="flex flex-row list-none">
+                        {linkList &&
+                            linkList.map((link, index) => (
+                                <li key={index}>
+                                    <Link to={link.to}>
+                                        <span>{link.label}</span>
+                                    </Link>
+                                </li>
+                            ))}
+                    </ul>
                 </nav>
             </div>
         </Wrapper>
