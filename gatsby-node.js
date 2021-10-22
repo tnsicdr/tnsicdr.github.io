@@ -57,7 +57,7 @@ const createPosts = async ({ posts, gatsbyUtilities }) => {
 
             const getPagePath = page => {
                 if (page > 0 && page <= totalPages) {
-                    return page === 1 ? `/posts/` : `/posts/${page}`;
+                    return page === 1 ? `/` : `/posts/${page}`;
                 }
 
                 return null;

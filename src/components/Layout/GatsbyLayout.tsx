@@ -10,10 +10,6 @@ const titleComponent = (title: string) => {
 
 const linkList = [
     {
-        to: '/posts/',
-        label: 'Posts',
-    },
-    {
         to: '/page/resources',
         label: 'Resources',
     },
