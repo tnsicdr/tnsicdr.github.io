@@ -36,7 +36,7 @@ export const SEO = (props: ISEOProps) => {
                     content: title || `${site.siteMetadata.title}`,
                 },
                 type && { property: `og:type`, content: type },
-            ]}
+            ].filter(n => n)}
         />
     );
 };
