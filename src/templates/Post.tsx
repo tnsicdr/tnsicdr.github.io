@@ -17,7 +17,7 @@ const postTemplate = ({ data: { previous, next, post } }) => {
 
     return (
         <GatsbyLayout>
-            <SEO title={title} />
+            <SEO title={title} type="article" />
             <Post
                 featuredImage={featuredImage}
                 title={title}

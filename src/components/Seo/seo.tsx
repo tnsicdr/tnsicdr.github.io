@@ -5,10 +5,11 @@ interface ISEOProps {
     title?: string;
     description?: string;
     language?: string;
+    type?: string;
 }
 
 export const SEO = (props: ISEOProps) => {
-    const { title = '', description, language = 'en' } = props;
+    const { title = '', description, language = 'en', type } = props;
 
     const { site } = useStaticQuery(
         graphql`
@@ -34,6 +35,7 @@ export const SEO = (props: ISEOProps) => {
                     property: `og:title`,
                     content: title || `${site.siteMetadata.title}`,
                 },
+                type && { property: `og:type`, content: type },
             ]}
         />
     );
