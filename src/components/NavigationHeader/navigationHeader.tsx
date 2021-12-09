@@ -31,7 +31,7 @@ export const NavigationHeader = (props: INavigationHeaderProps) => {
                             linkList.map((link, index) => (
                                 <li key={index}>
                                     <Link
-                                        className="hover:underline"
+                                        className="hover:underline hover:cursor-pointer"
                                         to={link.to}
                                     >
                                         <span>{link.label}</span>

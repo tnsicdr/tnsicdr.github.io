@@ -68,12 +68,12 @@ const PostsTemplate = ({
                 <div className="pagination-controls">
                     <div>
                         {previousPagePath && (
-                            <Link to={previousPagePath}>Previous Page</Link>
+                            <Link to={previousPagePath} className="hover:cursor-pointer">Previous Page</Link>
                         )}
                     </div>
                     <div>
                         {nextPagePath && (
-                            <Link to={nextPagePath}>Next Page</Link>
+                            <Link to={nextPagePath} className="hover:cursor-pointer">Next Page</Link>
                         )}
                     </div>
                 </div>

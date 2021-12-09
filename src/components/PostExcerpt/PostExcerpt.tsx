@@ -14,7 +14,7 @@ export const PostExcerpt = (props: IPostExcerptProps) => {
     return (
         <Typography>
             <article>
-                <Link to={slug}>
+                <Link to={slug} className="hover:cursor-pointer">
                     <h2>{title}</h2>
                 </Link>
                 <h3>
