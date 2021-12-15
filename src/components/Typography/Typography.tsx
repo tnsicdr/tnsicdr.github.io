@@ -6,8 +6,6 @@ import tw, { styled } from 'twin.macro';
 interface ITypographyProps {}
 
 const StyledContainer = styled.div`
-    ${tw`prose`}
-
     max-width: 100%;
 `;
 
@@ -20,5 +18,5 @@ export const Typography = (props: PropsWithChildren<ITypographyProps>) => {
         Prism.highlightAll();
     });
 
-    return <StyledContainer>{children}</StyledContainer>;
+    return <StyledContainer className="prose lg:prose-lg max-w-none">{children}</StyledContainer>;
 };
