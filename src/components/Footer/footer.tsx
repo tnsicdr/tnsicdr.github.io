@@ -13,6 +13,8 @@ export const Footer = () => {
                     <Link
                         to="https://twitter.com/tnsicdr"
                         className="text-gray-400 hover:tect-gray-500"
+                        rel="noopener noreferrer"
+                        target="_blank"
                     >
                         <span className="sr-only">Twitter</span>
                         <FontAwesomeIcon icon={faTwitter} />
@@ -20,6 +22,8 @@ export const Footer = () => {
                     <Link
                         to="https://github.com/tnsicdr"
                         className="text-gray-400 hover:tect-gray-500"
+                        rel="noopener noreferrer"
+                        target="_blank"
                     >
                         <span className="sr-only">GitHub</span>
                         <FontAwesomeIcon icon={faGithub} />

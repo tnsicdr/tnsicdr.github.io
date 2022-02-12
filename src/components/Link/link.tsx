@@ -6,6 +6,8 @@ interface ILinkProps {
     activeClassName?: string;
     partiallyActive?: boolean;
     className?: string;
+    rel?: string;
+    target?: string;
 }
 
 export const Link = (props: PropsWithChildren<ILinkProps>) => {
