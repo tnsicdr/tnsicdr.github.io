@@ -5,6 +5,7 @@ require('dotenv').config({
 module.exports = {
     siteMetadata: {
         title: 'code.tnsi.me',
+        siteUrl: 'https://code.tnsi.me',
     },
     plugins: [
         {
@@ -43,5 +44,6 @@ module.exports = {
             },
             __key: 'pages',
         },
+        'gatsby-plugin-sitemap',
     ],
 };
