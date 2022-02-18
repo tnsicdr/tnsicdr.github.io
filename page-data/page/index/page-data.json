@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-page-tsx",
+    "path": "/page/index/",
+    "result": {"data":{"page":{"id":"cG9zdDo3Mw==","title":"Index","content":"<p style=\"text-align: center;\">Hello, I&#8217;m Tensei</p>\n<p style=\"text-align: center;\">web developer, apple and linux enthusiast, and plastic model hobbyist</p>\n"}},"pageContext":{"id":"cG9zdDo3Mw=="}},
+    "staticQueryHashes": ["2251470642","3159585216"]}
