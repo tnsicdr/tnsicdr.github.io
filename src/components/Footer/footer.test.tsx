@@ -8,4 +8,3 @@ describe('Footer', () => {
         expect(tree).toMatchSnapshot();
     });
 });
-npm install --save-dev babel-jest
