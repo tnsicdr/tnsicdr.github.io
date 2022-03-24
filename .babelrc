@@ -4,7 +4,12 @@
             "babel-preset-gatsby",
             {
                 "targets": {
-                    "browsers": [">0.25%", "not dead", "not ie 11", "not op_mini all"]
+                    "browsers": [
+                        ">0.25%",
+                        "not dead",
+                        "not ie 11",
+                        "not op_mini all"
+                    ]
                 },
                 "reactRuntime": "automatic"
             }
@@ -14,7 +19,19 @@
         [
             "prismjs",
             {
-                "languages": ["javascript", "css", "html", "go", "csharp", "typescript", "tsx", "jsx", "swift", "ruby", "scss"],
+                "languages": [
+                    "javascript",
+                    "css",
+                    "html",
+                    "go",
+                    "csharp",
+                    "typescript",
+                    "tsx",
+                    "jsx",
+                    "swift",
+                    "ruby",
+                    "scss"
+                ],
                 "plugins": [
                     "show-language",
                     "line-numbers",

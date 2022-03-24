@@ -8,6 +8,33 @@ const babelOptions = {
         ],
         '@babel/preset-typescript',
     ],
+    plugins: [
+        [
+            'prismjs',
+            {
+                languages: [
+                    'javascript',
+                    'css',
+                    'html',
+                    'go',
+                    'csharp',
+                    'typescript',
+                    'tsx',
+                    'jsx',
+                    'swift',
+                    'ruby',
+                    'scss',
+                ],
+                plugins: [
+                    'show-language',
+                    'line-numbers',
+                    'normalize-whitespace',
+                ],
+                theme: 'tomorrow',
+                css: true,
+            },
+        ],
+    ],
 };
 
 module.exports = require('babel-jest').default.createTransformer(babelOptions);
