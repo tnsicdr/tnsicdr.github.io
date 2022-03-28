@@ -31,6 +31,14 @@ module.exports = {
         {
             resolve: 'gatsby-source-filesystem',
             options: {
+                name: 'posts',
+                path: `${__dirname}/content/posts`,
+            },
+            __key: 'posts',
+        },
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
                 name: 'images',
                 path: './src/images/',
             },
@@ -40,10 +48,11 @@ module.exports = {
             resolve: 'gatsby-source-filesystem',
             options: {
                 name: 'pages',
-                path: './src/pages/',
+                path: `${__dirname}/content/pages/`,
             },
             __key: 'pages',
         },
+        'gatsby-transformer-remark',
         'gatsby-plugin-sitemap',
     ],
 };
