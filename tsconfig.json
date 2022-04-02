@@ -1,12 +1,16 @@
 {
     "compilerOptions": {
         "target": "ESNext",
-        "module": "ESNext",
-        "lib": ["dom"],
+        "lib": ["dom", "ESNext"],
         "jsx": "preserve",
+        "module": "ESNext",
         "moduleResolution": "node",
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "strict": true,
         "noEmit": true,
-        "allowSyntheticDefaultImports": true
+        "allowSyntheticDefaultImports": true,
+        "skipLibCheck": true
     },
     "include": ["src/**/*", "types"],
     "exclude": ["node_modules"]

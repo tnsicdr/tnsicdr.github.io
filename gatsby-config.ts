@@ -1,24 +1,19 @@
+import { GatsbyConfig } from 'gatsby';
+
 require('dotenv').config({
     path: `.env.${process.env.NODE_ENV}`,
 });
 
-module.exports = {
+const config: GatsbyConfig = {
     siteMetadata: {
         title: 'code.tnsi.me',
         siteUrl: 'https://code.tnsi.me',
     },
     plugins: [
-        {
-            resolve: 'gatsby-source-wordpress',
-            options: {
-                url: process.env.WPGRAPHQL_URL,
-            },
-        },
-        'gatsby-plugin-emotion',
         'gatsby-plugin-postcss',
         'gatsby-plugin-image',
         'gatsby-plugin-react-helmet',
-        //"gatsby-plugin-sitemap",
+        'gatsby-plugin-sitemap',
         {
             resolve: 'gatsby-plugin-manifest',
             options: {
@@ -34,7 +29,6 @@ module.exports = {
                 name: 'images',
                 path: './src/images/',
             },
-            __key: 'images',
         },
         {
             resolve: 'gatsby-source-filesystem',
@@ -42,8 +36,15 @@ module.exports = {
                 name: 'pages',
                 path: './src/pages/',
             },
-            __key: 'pages',
         },
-        'gatsby-plugin-sitemap',
+        {
+            resolve: 'gatsby-source-filesystem',
+            options: {
+                name: 'posts',
+                path: './src/content/posts/',
+            },
+        },
     ],
 };
+
+export default config;

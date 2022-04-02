@@ -10,7 +10,7 @@ interface ILinkProps {
     target?: string;
 }
 
-export const Link = (props: PropsWithChildren<ILinkProps>) => {
+const Link = (props: PropsWithChildren<ILinkProps>) => {
     const { to, activeClassName, partiallyActive, children, ...other } = props;
 
     const internal = /^\/(?!\/)/.test(to);
@@ -33,3 +33,5 @@ export const Link = (props: PropsWithChildren<ILinkProps>) => {
         </a>
     );
 };
+
+export default Link;
