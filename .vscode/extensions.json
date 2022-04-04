@@ -6,6 +6,7 @@
         "esbenp.prettier-vscode",
         "styled-components.vscode-styled-components",
         "silvenon.mdx",
-        "xyc.vscode-mdx-preview"
+        "xyc.vscode-mdx-preview",
+        "dbaeumer.vscode-eslint"
     ]
 }

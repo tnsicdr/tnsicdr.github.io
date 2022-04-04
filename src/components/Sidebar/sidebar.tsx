@@ -9,11 +9,13 @@ const Sidebar = (props: ISidebarProps) => {
   const { className } = props;
 
   return (
-    <div className={clsx('flex flex-col min-h-full bg-slate-500', className)}>
+    <aside className={clsx('w-64', className)} aria-label="Sidebar">
+      <div className="flex flex-col min-h-full bg-slate-500">
       <ul>
         <li><Link to="/">Home</Link></li>
       </ul>
-    </div>
+      </div>
+    </aside>
   );
 };
 
