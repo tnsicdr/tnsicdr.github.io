@@ -6,7 +6,7 @@ require('dotenv').config({
 
 const config: GatsbyConfig = {
     siteMetadata: {
-        title: 'code.tnsi.me',
+        title: 'tnsi code',
         siteUrl: 'https://code.tnsi.me',
     },
     plugins: [
