@@ -1,9 +1,10 @@
-import { graphql, Link, PageProps } from 'gatsby';
-import { MDXProvider } from "@mdx-js/react"
-import { MDXRenderer } from "gatsby-plugin-mdx"
+import { graphql, PageProps } from 'gatsby';
+import { MDXProvider } from '@mdx-js/react';
+import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/Layout/Layout';
+import Link from '../components/Link/link';
 
-const shortcodes = { Link }
+const shortcodes = { Link };
 
 type DataProps = {
   site: {
@@ -26,12 +27,16 @@ const Post = ({ data }: PageProps<DataProps>) => {
     <Layout siteTitle={data.site.siteMetadata.title}>
       <article className="mb-2">
         <h2 className="font-medium text-xl">{data.mdx.frontmatter.title}</h2>
-        <div className="meta">
+        <div className="meta mb-1">
           <div className="meta-date">{post.frontmatter.date}</div>
         </div>
-        <MDXProvider components={shortcodes}>
-          <MDXRenderer frontmatter={post.frontmatter}>{post.body}</MDXRenderer>
-        </MDXProvider>
+        <div className="prose prose-lg prose-slate max-w-none">
+          <MDXProvider components={shortcodes}>
+            <MDXRenderer frontmatter={post.frontmatter}>
+              {post.body}
+            </MDXRenderer>
+          </MDXProvider>
+        </div>
       </article>
     </Layout>
   );
@@ -39,7 +44,7 @@ const Post = ({ data }: PageProps<DataProps>) => {
 
 export default Post;
 
-const query = graphql`
+export const query = graphql`
   query PostQuery($id: String) {
     site {
       ...SiteMetadata
@@ -49,6 +54,7 @@ const query = graphql`
       body
       frontmatter {
         title
+        date
       }
     }
   }

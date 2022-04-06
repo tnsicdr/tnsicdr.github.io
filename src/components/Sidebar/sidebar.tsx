@@ -12,7 +12,7 @@ const Sidebar = (props: ISidebarProps) => {
     <aside className={clsx('w-64', className)} aria-label="Sidebar">
       <div className="flex flex-col min-h-full bg-slate-700">
         <ul>
-          <li className="p-4 text-slate-300 hover:bg-slate-400 hover:text-slate-600">
+          <li className="p-4 text-slate-300 hover:text-slate-100">
             <Link to="/">Home</Link>
           </li>
         </ul>

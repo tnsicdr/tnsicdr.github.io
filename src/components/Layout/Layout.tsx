@@ -11,7 +11,7 @@ const Layout = (props: PropsWithChildren<ILayoutProps>) => {
   const { children, siteTitle } = props;
 
   return (
-    <div className="min-h-screen flex flex-col bg-slate-600">
+    <div className="min-h-screen flex flex-col bg-slate-500">
       <AppBar title={siteTitle} />
       <div className="grow flex flex-row min-h-full h-full w-full">
         <Sidebar className="shrink-0"></Sidebar>

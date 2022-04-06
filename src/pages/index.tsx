@@ -1,5 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import Layout from '../components/Layout/Layout';
+import Link from '../components/Link/link';
 
 type DataProps = {
   site: {
@@ -12,6 +13,7 @@ type DataProps = {
       frontmatter: {
         title: string;
         date: Date;
+        slug: string;
       };
       excerpt: string;
     }>;
@@ -25,11 +27,15 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
       <Layout siteTitle={data.site.siteMetadata.title}>
         {posts.map(post => (
           <article className="mb-2">
-            <h2 className="font-medium text-xl">{post.frontmatter.title}</h2>
-            <div className="meta">
+            <Link to={`/post/${post.frontmatter.slug}`}>
+              <h2 className="font-medium text-xl hover:text-slate-400">{post.frontmatter.title}</h2>
+            </Link>
+            <div className="meta mb-1">
               <div className="meta-date">{post.frontmatter.date}</div>
             </div>
-            <p>{post.excerpt}</p>
+            <div className="prose prose-lg prose-slate max-w-none">
+              {post.excerpt}
+            </div>
           </article>
         ))}
       </Layout>
