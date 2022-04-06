@@ -1,35 +1,29 @@
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { Link } from '../Link/link';
-import { faGithub, faInstagram, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import clsx from 'clsx';
+import Link from '../Link/link';
 
-export const Footer = () => {
-    return (
-        <footer className="text-gray-700 bg-white body-font">
-            <div className="container flex flex-col items-center px-8 py-8 mx-auto max-w-7xl sm:flex-row">
-                <p className="mt-4 text-sm text-gray-500 sm:ml-4 sm:pl-3 sm:border-gray-200 sm:mt-0">
-                    &copy; 2021 tnsi
-                </p>
-                <span className="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start">
-                    <Link
-                        to="https://twitter.com/tnsicdr"
-                        className="text-gray-400 hover:tect-gray-500"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        <span className="sr-only">Twitter</span>
-                        <FontAwesomeIcon icon={faTwitter} />
-                    </Link>
-                    <Link
-                        to="https://github.com/tnsicdr"
-                        className="text-gray-400 hover:tect-gray-500"
-                        rel="noopener noreferrer"
-                        target="_blank"
-                    >
-                        <span className="sr-only">GitHub</span>
-                        <FontAwesomeIcon icon={faGithub} />
-                    </Link>
-                </span>
-            </div>
-        </footer>
-    );
+interface IFooterProps {
+  className?: string;
+}
+
+const Footer = (props: IFooterProps) => {
+  const { className } = props;
+  return (
+    <footer className={clsx('bg-slate-800', className)}>
+      <div className="flex flex-row justify-end p-4">
+        <div className="flex flex-col text-slate-400">
+          <span className="self-end">
+            copyright &copy; {new Date().getFullYear()}
+          </span>
+          <span className="self-end">
+            built with{' '}
+            <Link className="text-slate-200 hover:underline" to="https://www.gatsbyjs.com/">
+              gatsbyjs
+            </Link>
+          </span>
+        </div>
+      </div>
+    </footer>
+  );
 };
+
+export default Footer;

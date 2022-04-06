@@ -1,24 +1,25 @@
-import { graphql, Link, useStaticQuery } from 'gatsby';
 import { PropsWithChildren } from 'react';
-import { ILink } from '../../interfaces/link';
-import { Footer } from '../Footer/footer';
-import { NavigationHeader } from '../NavigationHeader/navigationHeader';
+import AppBar from '../AppBar/appbar';
+import Footer from '../Footer/footer';
+import Sidebar from '../Sidebar/sidebar';
 
 interface ILayoutProps {
-    siteTitle: JSX.Element;
-    headerLinks?: Array<ILink>;
+  siteTitle?: string;
 }
 
-export const Layout = (props: PropsWithChildren<ILayoutProps>) => {
-    const { children, siteTitle, headerLinks } = props;
+const Layout = (props: PropsWithChildren<ILayoutProps>) => {
+  const { children, siteTitle } = props;
 
-    return (
-        <div className="flex flex-col w-full h-screen justify-between bg-white">
-            <NavigationHeader siteLogo={siteTitle} linkList={headerLinks} />
-            <main className="mb-auto">
-                <div className="container mx-auto p-4">{children}</div>
-            </main>
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="min-h-screen flex flex-col bg-slate-500">
+      <AppBar title={siteTitle} />
+      <div className="grow flex flex-row min-h-full h-full w-full">
+        <Sidebar className="shrink-0"></Sidebar>
+        <main className="p-4">{children}</main>
+      </div>
+      <Footer />
+    </div>
+  );
 };
+
+export default Layout;
