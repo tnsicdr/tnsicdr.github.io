@@ -50,7 +50,7 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
 export default IndexPage;
 
 export const query = graphql`
-  query PostsQuery {
+  query IndexQuery {
     site {
       ...SiteMetadata
     }
