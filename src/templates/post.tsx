@@ -3,6 +3,8 @@ import { MDXProvider } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faCalendar, faTags } from '@fortawesome/free-solid-svg-icons';
 
 const shortcodes = { Link };
 
@@ -17,6 +19,8 @@ type DataProps = {
     frontmatter: {
       title: string;
       date: Date;
+      slug: string;
+      tags: Array<string>;
     };
   };
 };
@@ -26,9 +30,20 @@ const Post = ({ data }: PageProps<DataProps>) => {
   return (
     <Layout siteTitle={data.site.siteMetadata.title}>
       <article className="mb-2">
-        <h2 className="font-medium text-xl">{data.mdx.frontmatter.title}</h2>
-        <div className="meta mb-1">
-          <div className="meta-date">{post.frontmatter.date}</div>
+        <Link to={`/post/${post.frontmatter.slug}`}>
+          <h2 className="font-medium text-2xl hover:text-slate-400">
+            {post.frontmatter.title}
+          </h2>
+        </Link>
+        <div className="meta mb-1 flex flex-col md:flex-row gap-x-4">
+          <div className="meta-date">
+            <FontAwesomeIcon icon={faCalendar} className="mr-1" />
+            {post.frontmatter.date}
+          </div>
+          <div className="meta-tags">
+            <FontAwesomeIcon icon={faTags} className="mr-1" />
+            {post.frontmatter.tags.join(', ')}
+          </div>
         </div>
         <div className="prose prose-lg prose-slate max-w-none">
           <MDXProvider components={shortcodes}>
@@ -55,6 +70,8 @@ export const query = graphql`
       frontmatter {
         title
         date
+        slug
+        tags
       }
     }
   }

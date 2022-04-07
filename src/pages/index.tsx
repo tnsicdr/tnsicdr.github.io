@@ -1,3 +1,5 @@
+import { faCalendar, faTags } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { graphql, PageProps } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
@@ -14,6 +16,7 @@ type DataProps = {
         title: string;
         date: Date;
         slug: string;
+        tags: Array<string>;
       };
       excerpt: string;
     }>;
@@ -28,12 +31,13 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
         {posts.map(post => (
           <article className="mb-2">
             <Link to={`/post/${post.frontmatter.slug}`}>
-              <h2 className="font-medium text-xl hover:text-slate-400">{post.frontmatter.title}</h2>
+              <h2 className="font-medium text-2xl hover:text-slate-400">{post.frontmatter.title}</h2>
             </Link>
-            <div className="meta mb-1">
-              <div className="meta-date">{post.frontmatter.date}</div>
+            <div className="meta mb-1 flex flex-col md:flex-row gap-x-4">
+              <div className="meta-date"><FontAwesomeIcon icon={faCalendar} className="mr-1" />{post.frontmatter.date}</div>
+              <div className="meta-tags"><FontAwesomeIcon icon={faTags} className="mr-1" />{post.frontmatter.tags.join(', ')}</div>
             </div>
-            <div className="prose prose-lg prose-slate max-w-none">
+            <div className="prose prose-lg max-w-none">
               {post.excerpt}
             </div>
           </article>
@@ -59,6 +63,7 @@ export const query = graphql`
           title
           date
           slug
+          tags
         }
         excerpt(pruneLength: 500)
         id
