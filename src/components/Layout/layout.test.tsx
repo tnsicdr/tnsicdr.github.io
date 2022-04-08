@@ -1,5 +1,6 @@
 import renderer from 'react-test-renderer';
-import Layout from './layout';
+import Layout from './Layout';
+
 
 describe('<Layout />', () => {
   test('renders', () => {
