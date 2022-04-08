@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { graphql, PageProps } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
+import { resolvePostUrl } from '../utilities/post/post-url-resolver';
 
 type DataProps = {
   site: {
@@ -30,7 +31,7 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
       <Layout siteTitle={data.site.siteMetadata.title}>
         {posts.map(post => (
           <article className="mb-2">
-            <Link to={`/post/${post.frontmatter.slug}`}>
+            <Link to={resolvePostUrl('/post', post.frontmatter)}>
               <h2 className="font-medium text-2xl hover:text-slate-400">{post.frontmatter.title}</h2>
             </Link>
             <div className="meta mb-1 flex flex-col md:flex-row gap-x-4">

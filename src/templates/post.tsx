@@ -5,6 +5,7 @@ import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faTags } from '@fortawesome/free-solid-svg-icons';
+import { resolvePostUrl } from '../utilities/post/post-url-resolver';
 
 const shortcodes = { Link };
 
@@ -30,7 +31,7 @@ const Post = ({ data }: PageProps<DataProps>) => {
   return (
     <Layout siteTitle={data.site.siteMetadata.title}>
       <article className="mb-2">
-        <Link to={`/post/${post.frontmatter.slug}`}>
+        <Link to={resolvePostUrl('/post', post.frontmatter)}>
           <h2 className="font-medium text-2xl hover:text-slate-400">
             {post.frontmatter.title}
           </h2>
