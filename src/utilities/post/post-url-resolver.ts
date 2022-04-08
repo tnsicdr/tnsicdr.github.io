@@ -15,7 +15,9 @@ export const resolvePostUrl = (basePath: string, frontmatter: PostFrontmatter) =
 
   // Build out date bit
   const parsedDate = new Date(frontmatter.date);
-  const date = `${parsedDate.getFullYear()}/${parsedDate.getMonth() + 1}/${parsedDate.getDate()}`;
+  const day = parsedDate.getDate().toString().padStart(2, '0');
+  const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0');
+  const date = `${parsedDate.getFullYear()}/${month}/${day}`;
 
   const url = slug ? `${basePath}/${date}/${slug}` : `${basePath}/${date}/${getKebabCase(title)}`;
   return url;
