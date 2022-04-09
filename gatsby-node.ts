@@ -1,6 +1,6 @@
 import type { Actions, GatsbyNode, Reporter } from 'gatsby';
 import path from 'path';
-import { resolvePostUrl } from './src/utilities/post/post-url-resolver';
+import { resolvePostUrl } from './src/utilities/resolvers/post-url-resolver';
 
 const createTags = async (actions: Actions, reporter: Reporter, graphql) => {
   const { createPage } = actions;

@@ -14,7 +14,7 @@ export const resolvePostUrl = (basePath: string, frontmatter: PostFrontmatter) =
   const { title, slug } = frontmatter;
 
   // Build out date bit
-  const parsedDate = new Date(frontmatter.date);
+  const parsedDate = new Date(frontmatter.date || '');
   const day = parsedDate.getDate().toString().padStart(2, '0');
   const month = (parsedDate.getMonth() + 1).toString().padStart(2, '0');
   const date = `${parsedDate.getFullYear()}/${month}/${day}`;

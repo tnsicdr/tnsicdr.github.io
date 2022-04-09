@@ -5,7 +5,7 @@ import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faTags } from '@fortawesome/free-solid-svg-icons';
-import { resolvePostUrl } from '../utilities/post/post-url-resolver';
+import { resolvePostUrl } from '../utilities/resolvers/post-url-resolver';
 import TagList from '../components/TagList/TagList';
 
 const shortcodes = { Link };

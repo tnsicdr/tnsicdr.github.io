@@ -4,7 +4,7 @@ import { graphql, PageProps } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
 import TagList from '../components/TagList/TagList';
-import { resolvePostUrl } from '../utilities/post/post-url-resolver';
+import { resolvePostUrl } from '../utilities/resolvers/post-url-resolver';
 
 type DataProps = {
   site: {
