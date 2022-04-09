@@ -31,7 +31,7 @@ const Post = ({ data }: PageProps<DataProps>) => {
   return (
     <Layout siteTitle={data.site.siteMetadata.title}>
       <article className="mb-2">
-        <Link to={resolvePostUrl('/post', post.frontmatter)}>
+        <Link to={resolvePostUrl('/posts', post.frontmatter)}>
           <h2 className="font-medium text-2xl hover:text-slate-400">
             {post.frontmatter.title}
           </h2>

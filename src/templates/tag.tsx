@@ -24,17 +24,23 @@ type DataProps = {
   };
 };
 
-const IndexPage = ({ data }: PageProps<DataProps>) => {
+type Context = {
+  tag: string;
+};
+
+const TagPage = ({ data, pageContext }: PageProps<DataProps>) => {
   const posts = data.allMdx.nodes;
+  const tag = (pageContext as Context).tag;
   return (
     <>
       <Layout siteTitle={data.site.siteMetadata.title}>
+        <h2>{tag}</h2>
         {posts.map(post => (
           <article className="mb-2" key={post.frontmatter.slug}>
             <Link to={resolvePostUrl('/posts', post.frontmatter)}>
-              <h2 className="font-medium text-2xl hover:text-slate-400">
+              <h3 className="font-medium text-2xl hover:text-slate-400">
                 {post.frontmatter.title}
-              </h2>
+              </h3>
             </Link>
             <div className="meta mb-1 flex flex-col md:flex-row gap-x-4">
               <div className="meta-date">
@@ -54,26 +60,24 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
   );
 };
 
-export default IndexPage;
+export default TagPage;
 
 export const query = graphql`
-  query IndexQuery {
+  query TagQuery($tag: String) {
     site {
       ...SiteMetadata
     }
     allMdx(
-      filter: { frontmatter: { type: { eq: "post" } } }
-      sort: { fields: frontmatter___date, order: DESC }
+      filter: { frontmatter: { tags: { in: [$tag] }, type: { eq: "post" } } }
     ) {
       nodes {
         frontmatter {
           title
-          date
-          slug
           tags
+          slug
+          date
         }
-        excerpt(pruneLength: 500)
-        id
+        excerpt
       }
     }
   }
