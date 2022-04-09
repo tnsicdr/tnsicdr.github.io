@@ -6,6 +6,7 @@ import Link from '../components/Link/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCalendar, faTags } from '@fortawesome/free-solid-svg-icons';
 import { resolvePostUrl } from '../utilities/post/post-url-resolver';
+import TagList from '../components/TagList/TagList';
 
 const shortcodes = { Link };
 
@@ -43,7 +44,7 @@ const Post = ({ data }: PageProps<DataProps>) => {
           </div>
           <div className="meta-tags">
             <FontAwesomeIcon icon={faTags} className="mr-1" />
-            {post.frontmatter.tags.join(', ')}
+            <TagList tags={post.frontmatter.tags} />
           </div>
         </div>
         <div className="prose prose-lg prose-slate max-w-none">

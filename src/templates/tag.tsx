@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { graphql, PageProps } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
+import TagList from '../components/TagList/TagList';
 import { resolvePostUrl } from '../utilities/post/post-url-resolver';
 
 type DataProps = {
@@ -34,7 +35,9 @@ const TagPage = ({ data, pageContext }: PageProps<DataProps>) => {
   return (
     <>
       <Layout siteTitle={data.site.siteMetadata.title}>
-        <h2>{tag}</h2>
+        <h2 className="mb-4 font-bold text-3xl">
+          Tag: <Link to={`/tags/${tag}`} className="text-gray-700">{tag}</Link>
+        </h2>
         {posts.map(post => (
           <article className="mb-2" key={post.frontmatter.slug}>
             <Link to={resolvePostUrl('/posts', post.frontmatter)}>
@@ -49,7 +52,7 @@ const TagPage = ({ data, pageContext }: PageProps<DataProps>) => {
               </div>
               <div className="meta-tags">
                 <FontAwesomeIcon icon={faTags} className="mr-1" />
-                {post.frontmatter.tags.join(', ')}
+                <TagList tags={post.frontmatter.tags} />
               </div>
             </div>
             <div className="prose prose-lg max-w-none">{post.excerpt}</div>

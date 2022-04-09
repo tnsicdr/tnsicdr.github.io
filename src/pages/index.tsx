@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { graphql, PageProps } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
+import TagList from '../components/TagList/TagList';
 import { resolvePostUrl } from '../utilities/post/post-url-resolver';
 
 type DataProps = {
@@ -43,7 +44,7 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
               </div>
               <div className="meta-tags">
                 <FontAwesomeIcon icon={faTags} className="mr-1" />
-                {post.frontmatter.tags.join(', ')}
+                <TagList tags={post.frontmatter.tags} />
               </div>
             </div>
             <div className="prose prose-lg max-w-none">{post.excerpt}</div>
