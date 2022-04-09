@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-tsx",
+    "path": "/tags/work",
+    "result": {"data":{"site":{"siteMetadata":{"title":"tnsi code"}},"allMdx":{"nodes":[{"frontmatter":{"title":"The Road Goes Ever On","tags":["work","goals"],"slug":"the-road-goes-ever-on","date":"2021-06-23"},"excerpt":"Change is a complex situation. There are many things to be excited about change, such as new experiences and fresh perspectives. However…"},{"frontmatter":{"title":"SalesPad, A Retrospective","tags":["work"],"slug":"salespad-a-retrospective","date":"2021-05-01"},"excerpt":"Friday, April 30th marked the end of my four years and some months at SalesPad, LLC, and my first professional development position. It's…"}]}},"pageContext":{"tag":"work"}},
+    "staticQueryHashes": []}
