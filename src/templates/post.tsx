@@ -1,5 +1,5 @@
 import { graphql, PageProps } from 'gatsby';
-import { MDXProvider } from '@mdx-js/react';
+import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
 import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
@@ -8,8 +8,10 @@ import { faCalendar, faTags } from '@fortawesome/free-solid-svg-icons';
 import { resolvePostUrl } from '../utilities/resolvers/post-url-resolver';
 import TagList from '../components/TagList/TagList';
 import Seo from '../components/Seo/Seo';
+import Prism from 'prismjs';
+import { useEffect } from 'react';
 
-const shortcodes = { Link };
+const shortcodes: MDXProviderComponentsProp = { Link };
 
 type DataProps = {
   site: {
@@ -30,6 +32,11 @@ type DataProps = {
 
 const Post = ({ data }: PageProps<DataProps>) => {
   const post = data.mdx;
+
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   return (
     <>
       <Seo title={post.frontmatter.title} />
