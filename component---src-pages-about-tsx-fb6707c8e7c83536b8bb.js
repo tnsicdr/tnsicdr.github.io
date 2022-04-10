@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktnsicdr_github_io=self.webpackChunktnsicdr_github_io||[]).push([[49],{1235:function(t,e,i){i.r(e);var s=i(7934),a=i(4578),n=i(5893);e.default=function(t){var e=t.data;return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(a.Z,{title:"about"}),(0,n.jsx)(s.Z,{siteTitle:e.site.siteMetadata.title})]})}}}]);
+//# sourceMappingURL=component---src-pages-about-tsx-fb6707c8e7c83536b8bb.js.map

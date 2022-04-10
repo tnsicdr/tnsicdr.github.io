@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunktnsicdr_github_io=self.webpackChunktnsicdr_github_io||[]).push([[754],{1248:function(t,e,i){i.r(e);var s=i(7934),a=i(4578),n=i(5893);e.default=function(t){var e=t.data;return(0,n.jsxs)(n.Fragment,{children:[(0,n.jsx)(a.Z,{title:"archive"}),(0,n.jsx)(s.Z,{siteTitle:e.site.siteMetadata.title})]})}}}]);
+//# sourceMappingURL=component---src-pages-posts-tsx-c5d15134dbaeb50630f8.js.map
