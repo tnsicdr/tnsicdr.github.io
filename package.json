@@ -11,7 +11,8 @@
     "serve": "gatsby serve",
     "clean": "gatsby clean",
     "test": "jest",
-    "deploy": "cross-env NODE_ENV=production gatsby build && gh-pages -d public -b main",
+    "predeploy": "cross-env NODE_ENV=production gatsby build",
+    "deploy": "gh-pages -d public -b main",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
     "typecheck": "tsc --noEmit"
