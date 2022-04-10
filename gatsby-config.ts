@@ -6,8 +6,13 @@ require('dotenv').config({
 
 const config: GatsbyConfig = {
     siteMetadata: {
-        title: 'tnsi code',
+        title: 'code.tnsi',
         siteUrl: 'https://code.tnsi.me',
+        description: 'A blog focusing on web development and work life.',
+        social: {
+          twitter: 'tnsicdr',
+          github: 'tnsicdr'
+        }
     },
     plugins: [
         'gatsby-plugin-postcss',

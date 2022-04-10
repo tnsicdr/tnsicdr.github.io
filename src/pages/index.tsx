@@ -1,8 +1,10 @@
 import { faCalendar, faTags } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { graphql, PageProps } from 'gatsby';
+import { Helmet } from 'react-helmet';
 import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
+import Seo from '../components/Seo/Seo';
 import TagList from '../components/TagList/TagList';
 import { resolvePostUrl } from '../utilities/resolvers/post-url-resolver';
 
@@ -29,6 +31,7 @@ const IndexPage = ({ data }: PageProps<DataProps>) => {
   const posts = data.allMdx.nodes;
   return (
     <>
+      <Seo title="index" />
       <Layout siteTitle={data.site.siteMetadata.title}>
         {posts.map(post => (
           <article className="mb-2" key={post.frontmatter.slug}>

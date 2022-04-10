@@ -1,5 +1,6 @@
 import { graphql, PageProps } from 'gatsby';
 import Layout from '../components/Layout/Layout';
+import Seo from '../components/Seo/Seo';
 
 type DataProps = {
   site: {
@@ -12,6 +13,7 @@ type DataProps = {
 const PostsPage = ({ data }: PageProps<DataProps>) => {
   return (
     <>
+      <Seo title="archive" />
       <Layout siteTitle={data.site.siteMetadata.title}>
       </Layout>
     </>

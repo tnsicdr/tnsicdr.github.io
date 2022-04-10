@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { graphql, PageProps } from 'gatsby';
 import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
+import Seo from '../components/Seo/Seo';
 import TagList from '../components/TagList/TagList';
 import { resolvePostUrl } from '../utilities/resolvers/post-url-resolver';
 import { resolveTagUrl } from '../utilities/resolvers/tag-url-resolver';
@@ -35,6 +36,7 @@ const TagPage = ({ data, pageContext }: PageProps<DataProps>) => {
   const tag = (pageContext as Context).tag;
   return (
     <>
+      <Seo title={tag} />
       <Layout siteTitle={data.site.siteMetadata.title}>
         <h2 className="mb-4 font-bold text-3xl">
           Tag: <Link to={resolveTagUrl(tag)} className="text-gray-700">{tag}</Link>
