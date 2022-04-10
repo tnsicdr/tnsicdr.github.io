@@ -1,3 +1,4 @@
+import { resolveTagUrl } from '../../utilities/resolvers/tag-url-resolver';
 import Link from '../Link/link';
 
 type TagListProps = {
@@ -11,7 +12,7 @@ const TagList = (props: TagListProps) => {
     <span>
       {tags.map((tag, index) => (
         <>
-          <Link key={tag} to={`/tags/${tag}`} className="hover:underline">
+          <Link key={tag} to={resolveTagUrl(tag)} className="hover:underline">
             {tag}
           </Link>
           {index !== tags.length - 1 && <span>, </span>}

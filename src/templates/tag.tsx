@@ -5,6 +5,7 @@ import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
 import TagList from '../components/TagList/TagList';
 import { resolvePostUrl } from '../utilities/resolvers/post-url-resolver';
+import { resolveTagUrl } from '../utilities/resolvers/tag-url-resolver';
 
 type DataProps = {
   site: {
@@ -36,7 +37,7 @@ const TagPage = ({ data, pageContext }: PageProps<DataProps>) => {
     <>
       <Layout siteTitle={data.site.siteMetadata.title}>
         <h2 className="mb-4 font-bold text-3xl">
-          Tag: <Link to={`/tags/${tag}`} className="text-gray-700">{tag}</Link>
+          Tag: <Link to={resolveTagUrl(tag)} className="text-gray-700">{tag}</Link>
         </h2>
         {posts.map(post => (
           <article className="mb-2" key={post.frontmatter.slug}>
