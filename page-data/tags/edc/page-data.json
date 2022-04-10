@@ -1,0 +1,5 @@
+{
+    "componentChunkName": "component---src-templates-tag-tsx",
+    "path": "/tags/edc",
+    "result": {"data":{"site":{"siteMetadata":{"title":"code.tnsi"}},"allMdx":{"nodes":[{"frontmatter":{"title":"Everyday Carry 2022","tags":["edc","gear"],"slug":"everyday-carry-2022","date":"2021-04-09"},"excerpt":"Welcome to a new topic on Everyday Carry, which I like to think of as \"life changing capitalism\", in a good sense. The baggage that I bring…"}]}},"pageContext":{"tag":"edc"}},
+    "staticQueryHashes": ["2841359383","290055352"]}
