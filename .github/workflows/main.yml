@@ -1,12 +1,10 @@
 # This is a basic workflow to help you get started with Actions
 
-name: CI
+name: Run Tests
 
 # Controls when the workflow will run
 on:
   # Triggers the workflow on push or pull request events but only for the dev branch
-  push:
-    branches: [ dev ]
   pull_request:
     branches: [ dev ]
 
@@ -32,3 +30,6 @@ jobs:
       # Run Test
       - name: run jest
         run: npm run test
+
+
+
