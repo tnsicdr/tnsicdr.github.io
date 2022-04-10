@@ -2,4 +2,4 @@
     "componentChunkName": "component---src-templates-tag-tsx",
     "path": "/tags/goals",
     "result": {"data":{"site":{"siteMetadata":{"title":"code.tnsi"}},"allMdx":{"nodes":[{"frontmatter":{"title":"The Road Goes Ever On","tags":["work","goals"],"slug":"the-road-goes-ever-on","date":"2021-06-23"},"excerpt":"Change is a complex situation. There are many things to be excited about change, such as new experiences and fresh perspectives. However…"}]}},"pageContext":{"tag":"goals"}},
-    "staticQueryHashes": ["2841359383"]}
+    "staticQueryHashes": ["2841359383","290055352"]}
