@@ -39,28 +39,35 @@ const TagPage = ({ data, pageContext }: PageProps<DataProps>) => {
       <Seo title={tag} />
       <Layout siteTitle={data.site.siteMetadata.title}>
         <h2 className="mb-4 font-bold text-3xl">
-          Tag: <Link to={resolveTagUrl(tag)} className="text-gray-700">{tag}</Link>
+          Tag:{' '}
+          <Link to={resolveTagUrl(tag)} className="text-gray-700">
+            {tag}
+          </Link>
         </h2>
-        {posts.map(post => (
-          <article className="mb-2" key={post.frontmatter.slug}>
-            <Link to={resolvePostUrl('/posts', post.frontmatter)}>
-              <h3 className="font-medium text-2xl hover:text-slate-400">
-                {post.frontmatter.title}
-              </h3>
-            </Link>
-            <div className="meta mb-1 flex flex-col md:flex-row gap-x-4">
-              <div className="meta-date">
-                <FontAwesomeIcon icon={faCalendar} className="mr-1" />
-                {post.frontmatter.date}
-              </div>
-              <div className="meta-tags">
-                <FontAwesomeIcon icon={faTags} className="mr-1" />
-                <TagList tags={post.frontmatter.tags} />
-              </div>
-            </div>
-            <div className="prose prose-lg max-w-none">{post.excerpt}</div>
-          </article>
-        ))}
+        <ul className="list-none space-y-8">
+          {posts.map(post => (
+            <li key={post.frontmatter.slug}>
+              <article>
+                <Link to={resolvePostUrl('/posts', post.frontmatter)}>
+                  <h3 className="font-medium text-2xl hover:text-slate-400">
+                    {post.frontmatter.title}
+                  </h3>
+                </Link>
+                <div className="meta mb-1 flex flex-col md:flex-row gap-x-4">
+                  <div className="meta-date">
+                    <FontAwesomeIcon icon={faCalendar} className="mr-1" />
+                    {post.frontmatter.date}
+                  </div>
+                  <div className="meta-tags">
+                    <FontAwesomeIcon icon={faTags} className="mr-1" />
+                    <TagList tags={post.frontmatter.tags} />
+                  </div>
+                </div>
+                <div className="prose prose-lg max-w-none">{post.excerpt}</div>
+              </article>
+            </li>
+          ))}
+        </ul>
       </Layout>
     </>
   );
