@@ -10,10 +10,10 @@ const Layout = (props: PropsWithChildren<ILayoutProps>) => {
   const { children, siteTitle } = props;
 
   return (
-    <div className="min-h-screen flex flex-col bg-gray-50">
+    <div className="min-h-screen w-full flex flex-col bg-gray-50">
       <AppBar title={siteTitle} />
-      <div className="grow flex flex-row min-h-full h-full w-full">
-        <main className="p-8">{children}</main>
+      <div className="grow flex flex-row min-h-full h-full">
+        <main className="p-8 mx-auto w-full max-w-4xl">{children}</main>
       </div>
       <Footer />
     </div>
