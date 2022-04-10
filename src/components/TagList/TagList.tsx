@@ -1,3 +1,4 @@
+import { Fragment } from 'react';
 import { resolveTagUrl } from '../../utilities/resolvers/tag-url-resolver';
 import Link from '../Link/link';
 
@@ -11,12 +12,12 @@ const TagList = (props: TagListProps) => {
   return (
     <span>
       {tags.map((tag, index) => (
-        <>
-          <Link key={tag} to={resolveTagUrl(tag)} className="hover:underline">
+        <Fragment key={tag}>
+          <Link to={resolveTagUrl(tag)} className="hover:underline">
             {tag}
           </Link>
           {index !== tags.length - 1 && <span>, </span>}
-        </>
+        </Fragment>
       ))}
     </span>
   );
