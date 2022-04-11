@@ -81,7 +81,7 @@ export const query = graphql`
       ...SiteMetadata
     }
     allMdx(
-      filter: { frontmatter: { tags: { in: [$tag] }, type: { eq: "post" } } }
+      filter: { frontmatter: { tags: { in: [$tag] }, type: { eq: "post" }, draft: { eq: false } } }
     ) {
       nodes {
         frontmatter {

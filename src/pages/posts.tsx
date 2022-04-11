@@ -28,7 +28,7 @@ type DataProps = {
 
 const PostsPage = ({ data }: PageProps<DataProps>) => {
   const posts = data.allMdx.nodes;
-  
+
   return (
     <>
       <Seo title="archive" />
@@ -69,7 +69,7 @@ export const query = graphql`
       ...SiteMetadata
     }
     allMdx(
-      filter: { frontmatter: { type: { eq: "post" } } }
+      filter: { frontmatter: { type: { eq: "post" }, draft: { eq: false } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       nodes {

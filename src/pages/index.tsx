@@ -70,7 +70,7 @@ export const query = graphql`
       ...SiteMetadata
     }
     allMdx(
-      filter: { frontmatter: { type: { eq: "post" } } }
+      filter: { frontmatter: { type: { eq: "post" }, draft: { eq: false } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
       nodes {
