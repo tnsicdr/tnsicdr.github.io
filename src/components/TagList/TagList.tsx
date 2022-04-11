@@ -14,7 +14,7 @@ const TagList = (props: TagListProps) => {
       {tags.map((tag, index) => (
         <Fragment key={tag}>
           <Link to={resolveTagUrl(tag)} className="hover:underline">
-            {tag}
+            #{tag}
           </Link>
           {index !== tags.length - 1 && <span>, </span>}
         </Fragment>
