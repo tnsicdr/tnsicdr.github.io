@@ -30,7 +30,7 @@ const Footer = (props: FooterProps) => {
   const github = site.siteMetadata?.social?.github;
 
   return (
-    <footer className={clsx('bg-gray-300', className)}>
+    <footer className={clsx('border-t border-gray-300', className)}>
       <div className="mx-auto w-full max-w-4xl">
         <div className="flex flex-col md:flex-row md:justify-between px-8 py-4">
           <div className="flex flex-col text-sm">

@@ -9,7 +9,7 @@ interface IAppBarProps {
 const AppBar = (props: IAppBarProps) => {
   const { className, title } = props;
   return (
-    <div className={clsx('bg-gray-200 px-8 py-4 w-full', className)}>
+    <div className={clsx('px-8 py-4 w-full border-b border-gray-300', className)}>
       <div className="mx-auto w-full max-w-4xl">
         <div className="flex flex-row justify-between">
           <Link className="font-medium text-xl" to="/">
