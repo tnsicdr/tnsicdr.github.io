@@ -1,5 +1,5 @@
 {
     "componentChunkName": "component---src-templates-tag-tsx",
     "path": "/tags/python",
-    "result": {"data":{"site":{"siteMetadata":{"title":"code.tnsi"}},"allMdx":{"nodes":[]}},"pageContext":{"tag":"python"}},
+    "result": {"data":{"site":{"siteMetadata":{"title":"code.tnsi"}},"allMdx":{"nodes":[{"frontmatter":{"title":"A Dive into Python Setup","tags":["environment","python","macos","code"],"slug":"a-dive-into-python-setup","date":"2022-04-11"},"excerpt":"While I consider myself a frontend developer, and find the most joy and energy from working in JavaScript and the browser, my roles have…"}]}},"pageContext":{"tag":"python"}},
     "staticQueryHashes": ["2841359383","290055352"]}
