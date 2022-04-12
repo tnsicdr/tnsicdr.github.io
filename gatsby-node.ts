@@ -28,7 +28,6 @@ const createTags = async (actions: Actions, reporter: Reporter, graphql) => {
     .flatMap(({ node }) => node.frontmatter.tags)
     .filter(n => n);
   const uniqueTags: Array<string> = Array.from(new Set(tags));
-  console.log(uniqueTags);
 
   uniqueTags.forEach((tag, index) => {
     createPage({
