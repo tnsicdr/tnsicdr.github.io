@@ -11,7 +11,7 @@ import Seo from '../components/Seo/Seo';
 import Prism from 'prismjs';
 import { useEffect } from 'react';
 
-const shortcodes: MDXProviderComponentsProp = { Link };
+const shortcodes: MDXProviderComponentsProp = { Link, inlineCode: (props) => <code className="language-*" {...props} /> };
 
 type DataProps = {
   site: {
