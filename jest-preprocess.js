@@ -25,6 +25,7 @@ const babelOptions = {
                     'ruby',
                     'scss',
                     'python',
+                    'shell',
                 ],
                 plugins: [
                     'show-language',

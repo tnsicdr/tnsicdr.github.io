@@ -16,7 +16,7 @@ To ease management of dependencies and updates, I'll be installing `pyenv` throu
   
 At this time, the latest release of pyenv is `2.2.5`, which has `3.10.3` at the latest release of Python available, so install that and set it as the global python.  
   
-```zsh
+```shell
 pyenv install 3.10.3
 pyenv global 3.10.3
 ```
@@ -25,13 +25,13 @@ Python dependency isolation is usually handled through virtualenvs or venvs, whi
   
 The recommended method to [install poetry](https://python-poetry.org/docs/master/#installation) is through its installer script.   
   
-```zsh
+```shell
 curl -sSL https://install.python-poetry.org | python3 -  
 ```
 
 `poetry` installs to `~/.local/bin`, which should already exist in `$PATH` on macOS. Once it's installed, create a new project directory, and initialize poetry in it.  
   
-```zsh
+```shell
 mkdir pyapp
 cd ./pyapp  
 poetry init
@@ -44,7 +44,7 @@ Follow the prompts to set up `poetry` for that folder. After that, dependencies 
 print("Hello, 世界!")
 ```
 
-```zsh
+```shell
 poetry run python3 ./hello.py
 >> Hello, 世界!  
 ```

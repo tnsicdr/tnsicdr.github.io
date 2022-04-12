@@ -31,7 +31,8 @@
                     "swift",
                     "ruby",
                     "scss",
-                    "python"
+                    "python",
+                    "shell"
                 ],
                 "plugins": [
                     "show-language",
