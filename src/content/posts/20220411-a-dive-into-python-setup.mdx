@@ -4,7 +4,7 @@ date: "2022-04-11"
 title: "A Dive into Python Setup"
 type: "post"
 tags: ["environment", "python", "macos", "code"]  
-draft: true
+draft: false
 ---
 While I consider myself a frontend developer, and find the most joy and energy from working in JavaScript and the browser, my roles have traditionally been full stack, and I've always been in a position where I know just enough about the backend stack of the projects I work on to be dangerous and unblock myself. Last month, I rejoined the team at Cavallo (formerly SalesPad), but I've into a new (and admittedly, desirable) situation: The backend that I work with is in Python instead of C#.NET. I've dabbled in Python in the past for simple scripting and automation, but I haven't really taken a deep dive into building a non-trivial tool in Python yet, so it's a good time to take a dive into Python and get set up.  
   
@@ -31,7 +31,7 @@ curl -sSL https://install.python-poetry.org | python3 -
 
 `poetry` installs to `~/.local/bin`, which should already exist in `$PATH` on macOS. Once it's installed, create a new project directory, and initialize poetry in it.  
   
-```  
+```zsh
 mkdir pyapp
 cd ./pyapp  
 poetry init

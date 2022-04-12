@@ -30,7 +30,8 @@
                     "jsx",
                     "swift",
                     "ruby",
-                    "scss"
+                    "scss",
+                    "python"
                 ],
                 "plugins": [
                     "show-language",
