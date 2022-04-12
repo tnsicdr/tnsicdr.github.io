@@ -1,4 +1,5 @@
 import { faGithub, faTwitter } from '@fortawesome/free-brands-svg-icons';
+import { faRssSquare } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import clsx from 'clsx';
 import { graphql, useStaticQuery } from 'gatsby';
@@ -36,6 +37,11 @@ const Footer = (props: FooterProps) => {
           <div className="flex flex-col text-sm">
             <div>
               <ul className="list-none flex flex-row gap-2 text-lg">
+                <li>
+                  <Link to="/rss.xml">
+                    <FontAwesomeIcon icon={faRssSquare} aria-label="rss" />
+                  </Link>
+                </li>
                 {twitter && (
                   <li>
                     <Link to={`https://twitter.com/${twitter}`}>
