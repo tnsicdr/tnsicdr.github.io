@@ -36,6 +36,6 @@ My first Macs were the Mid-2009 and 2008 Core 2 Duo MacBook Pros, with the 2009 
 Depending on the items above, I bring an additional assortment of accessories, with my favorites being the [Basic Stand](https://basicstand.com), the [MX Keys Mini](https://www.logitech.com/en-us/products/keyboards/mx-keys-mini.920-010473.html), and the [MX Master 3](https://www.logitech.com/en-us/products/mice/mx-master-3.html) with a [DeltaHub Carpio](https://deltahub.io/products/carpio-2). I generally bring a couple Anker USB-C cables and chargers, and have an Anker Power Bank for the phones.
 
 ---
-[^1] Masks are socially acceptable now, and being out and about with a cold isn't.
+[^1]: Masks are socially acceptable now, and being out and about with a cold isn't.
  
-[^2] Had to take my work laptop home to remote due to a power outage, while already having my MacBook Pro in the backpack.
+[^2]: Had to take my work laptop home to remote due to a power outage, while already having my MacBook Pro in the backpack.

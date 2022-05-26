@@ -51,4 +51,4 @@ poetry run python3 ./hello.py
   
 There we have it, Python running in a `npm`-like configuration on macOS.  
 
-[^1] `/usr/bin/python3` is `3.8.9` on macOS 12.3.1 at the time of writing this.
+[^1]: `/usr/bin/python3` is `3.8.9` on macOS 12.3.1 at the time of writing this.
