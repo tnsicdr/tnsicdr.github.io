@@ -1,6 +1,4 @@
 import { graphql, PageProps } from 'gatsby';
-import { MDXProvider, MDXProviderComponentsProp } from '@mdx-js/react';
-import { MDXRenderer } from 'gatsby-plugin-mdx';
 import Layout from '../components/Layout/Layout';
 import Link from '../components/Link/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
@@ -10,8 +8,7 @@ import TagList from '../components/TagList/TagList';
 import Seo from '../components/Seo/Seo';
 import Prism from 'prismjs';
 import { useEffect } from 'react';
-
-const shortcodes: MDXProviderComponentsProp = { Link, inlineCode: (props) => <code className="language-*" {...props} /> };
+import parse from 'html-react-parser';
 
 type DataProps = {
   site: {
@@ -19,8 +16,8 @@ type DataProps = {
       title: string;
     };
   };
-  mdx: {
-    body: string;
+  markdownRemark: {
+    html: string;
     frontmatter: {
       title: string;
       date: Date;
@@ -31,7 +28,7 @@ type DataProps = {
 };
 
 const Post = ({ data }: PageProps<DataProps>) => {
-  const post = data.mdx;
+  const post = data.markdownRemark;
 
   useEffect(() => {
     Prism.highlightAll();
@@ -58,11 +55,7 @@ const Post = ({ data }: PageProps<DataProps>) => {
             </div>
           </div>
           <div className="prose prose-lg prose-slate max-w-none">
-            <MDXProvider components={shortcodes}>
-              <MDXRenderer frontmatter={post.frontmatter}>
-                {post.body}
-              </MDXRenderer>
-            </MDXProvider>
+            {parse(post.html)}
           </div>
         </article>
       </Layout>
@@ -77,9 +70,9 @@ export const query = graphql`
     site {
       ...SiteMetadata
     }
-    mdx(id: { eq: $id }) {
+    markdownRemark(id: { eq: $id }) {
       id
-      body
+      html
       frontmatter {
         title
         date

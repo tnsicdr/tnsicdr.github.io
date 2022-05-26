@@ -27,7 +27,6 @@ const config: GatsbyConfig = {
         icon: 'src/images/icon.png',
       },
     },
-    'gatsby-plugin-mdx',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -52,6 +51,13 @@ const config: GatsbyConfig = {
       },
     },
     {
+      resolve: `gatsby-transformer-remark`,
+      options: {
+        footnotes: true,
+        gfm: true,
+      }
+    },
+    {
       resolve: 'gatsby-plugin-feed',
       options: {
         query: `
@@ -68,8 +74,8 @@ const config: GatsbyConfig = {
         `,
         feeds: [
           {
-            serialize: ({ query: { site, allMdx } }) => {
-              return allMdx.edges.map(edge => {
+            serialize: ({ query: { site, allMarkdownRemark } }) => {
+              return allMarkdownRemark.edges.map(edge => {
                 return Object.assign({}, edge.node.frontmatter, {
                   description: edge.node.excerpt,
                   date: edge.node.frontmatter.date,
@@ -81,7 +87,7 @@ const config: GatsbyConfig = {
             },
             query:`
               {
-                allMdx(
+                allMarkdownRemark(
                   filter: { frontmatter: { type: { eq: "post" }, draft: { eq: false } } }
                   sort: { order: DESC, fields: [frontmatter___date] }
                 ) {

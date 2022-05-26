@@ -14,7 +14,7 @@ type DataProps = {
       title: string;
     };
   };
-  allMdx: {
+  allMarkdownRemark: {
     nodes: Array<{
       frontmatter: {
         title: string;
@@ -32,7 +32,7 @@ type Context = {
 };
 
 const TagPage = ({ data, pageContext }: PageProps<DataProps>) => {
-  const posts = data.allMdx.nodes;
+  const posts = data.allMarkdownRemark.nodes;
   const tag = (pageContext as Context).tag;
   return (
     <>
@@ -80,7 +80,7 @@ export const query = graphql`
     site {
       ...SiteMetadata
     }
-    allMdx(
+    allMarkdownRemark(
       filter: { frontmatter: { tags: { in: [$tag] }, type: { eq: "post" }, draft: { eq: false } } }
     ) {
       nodes {
