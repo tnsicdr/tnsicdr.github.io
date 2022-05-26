@@ -14,7 +14,7 @@ type DataProps = {
       title: string;
     };
   };
-  allMdx: {
+  allMarkdownRemark: {
     nodes: Array<{
       frontmatter: {
         title: string;
@@ -28,7 +28,7 @@ type DataProps = {
 };
 
 const IndexPage = ({ data }: PageProps<DataProps>) => {
-  const posts = data.allMdx.nodes;
+  const posts = data.allMarkdownRemark.nodes;
   return (
     <>
       <Seo title="index" />
@@ -69,7 +69,7 @@ export const query = graphql`
     site {
       ...SiteMetadata
     }
-    allMdx(
+    allMarkdownRemark(
       filter: { frontmatter: { type: { eq: "post" }, draft: { eq: false } } }
       sort: { fields: frontmatter___date, order: DESC }
     ) {
