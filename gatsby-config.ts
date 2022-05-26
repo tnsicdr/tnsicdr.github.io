@@ -55,6 +55,13 @@ const config: GatsbyConfig = {
       options: {
         footnotes: true,
         gfm: true,
+        plugins: [
+          'gatsby-remark-autolink-headers',
+          'gatsby-remark-copy-linked-files',
+          'gatsby-remark-external-links',
+          'gatsby-remark-images',
+          'gatsby-remark-numbered-footnotes',
+        ]
       }
     },
     {
