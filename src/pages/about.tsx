@@ -20,7 +20,7 @@ const AboutPage = ({ data }: PageProps<DataProps>) => {
         <section className="mb-4">
           <h3 className="font-bold text-xl">Hello! I'm tensei</h3>
           <p className="mb-2">
-            I am a softare developer focused in frontend development with
+            I am a software developer focused in frontend development with
             JavaScript, TypeScript, and React. I have backend experience with C#
             and .NET, but have preference for NodeJS.
           </p>
