@@ -33,6 +33,7 @@
     "@mdx-js/mdx": "^2.1.1",
     "@mdx-js/react": "^2.1.1",
     "@primer/octicons-react": "^17.3.0",
+    "@tnsicdr/gatsby-plugin-fontawesome-css": "^2.0.0",
     "@types/mdx-js__react": "^1.5.5",
     "autoprefixer": "^10.4.7",
     "babel-plugin-prismjs": "^2.1.0",

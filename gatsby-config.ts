@@ -18,6 +18,7 @@ const config: GatsbyConfig = {
   },
   plugins: [
     'gatsby-plugin-postcss',
+    '@tnsicdr/gatsby-plugin-fontawesome-css',
     'gatsby-plugin-image',
     'gatsby-plugin-react-helmet',
     'gatsby-plugin-sitemap',
