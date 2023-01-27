@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+---
+
+<Layout>
+  <main>
+    <h2>About</h2>
+    <h3>Me</h3>
+    <p>
+      I'm Tensei, a software developer focused primarily in frontend development
+      with JavaScript, TypeScript, and React. I've dabbled in the backend
+      professionally with C# and .Net, as well as personally with Ruby and
+      NodeJS.
+    </p>
+    <div class="facts-grid">
+      <div>
+        <h4>Interests</h4>
+        <ul>
+          <li>macOS and Linux</li>
+          <li>Web (JavaScript/TypeScript)</li>
+          <li>Ruby</li>
+          <li>Plastic Models and Miniatures (Warhammer!)</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Learning</h4>
+        <ul>
+          <li>Python</li>
+          <li>Rust</li>
+          <li>Swift</li>
+        </ul>
+      </div>
+    </div>
+    <h3>The Site</h3>
+    <p>
+      This site serves as a means to collect and share information, as well as
+      to experiment with and work with technology and stacks that I don't
+      necessarily make use of in my day job. The current interation of this site
+      is built with <a
+        href="https://astro.build/"
+        target="_blank"
+        rel="noopener">Astro 2.0</a
+      >, but it was previously implemented using <a
+        href="https://www.gatsbyjs.com/"
+        target="_blank"
+        rel="noopener">Gatsby</a
+      >; I had a great time with Gatsby at a previous position paired with <a
+        href="https://kontent.ai/"
+        target="_blank"
+        rel="noopener">Kontent</a
+      > as a headless CMS, but it proved to be too cumbersome, especially when working
+      with locally sourced markdown content.
+    </p>
+  </main>
+</Layout>
+<style lang="scss">
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 100ch;
+
+    p, h1, h2, h3, h4, h5, h6 {
+      margin-bottom: 1em;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+      font-weight: 600;
+    }
+
+    ul {
+      list-style: disc;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      padding-inline-start: 2em;
+    }
+  }
+
+  .facts-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .facts-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+</style>

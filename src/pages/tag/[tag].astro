@@ -1,0 +1,48 @@
+---
+import { getCollection } from "astro:content";
+import PostArticle from "../../components/Post/PostArticle.astro";
+import Layout from "../../layouts/Layout.astro";
+
+export async function getStaticPaths() {
+  const publishedTags = (
+    await getCollection("blog", ({ data }) => !data.draft)
+  ).flatMap((post) => post.data.tags || []);
+
+  return publishedTags.map((tag) => ({ params: { tag: tag }, props: { tag } }));
+}
+
+const { tag } = Astro.props;
+const publishedAndTaggedBlogPosts = await getCollection(
+  "blog",
+  ({ data }) => !data.draft && data.tags?.includes(tag)
+);
+---
+<Layout>
+  <main>
+    <h2 class="heading">Posts tagged with {tag}</h2>
+    <ul>
+      {
+        publishedAndTaggedBlogPosts.slice(0, 5).map(async (blogPost) => {
+          const { Content } = await blogPost.render();
+          return (
+            <li>
+              <PostArticle post={blogPost} excerpt />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+</Layout>
+<style lang="scss">
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 100ch;
+
+    .heading {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+  }
+</style>

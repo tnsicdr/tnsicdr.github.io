@@ -1,0 +1,23 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import PostArticle from "../components/Post/PostArticle.astro";
+
+// TODO [astro@2.0.3]: filter by non-draft 
+const publishedBlogPosts = await getCollection("blog");
+---
+
+<Layout>
+  <main>
+    <h2>Content not found</h2>
+    <p>Looks like there's nothing here. <a href="/" target="_self">Back to home.</a></p>
+  </main>
+</Layout>
+
+<style lang="scss">
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 100ch;
+  }
+</style>

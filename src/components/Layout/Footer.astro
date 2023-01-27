@@ -1,0 +1,83 @@
+---
+import {
+  IconBrandGithub,
+  IconBrandTwitter,
+  TablerIconsProps,
+} from "@tabler/icons-react";
+import type { ReactNode } from "react";
+import { remFactor } from "../../shared/sizing/metrics";
+
+interface SocialLink {
+  name: string;
+  label: string;
+  url: string;
+  icon?: (props: TablerIconsProps) => JSX.Element;
+}
+
+const socialsList: SocialLink[] = [
+  {
+    name: "github",
+    label: "GitHub",
+    url: "https://github.com/tnsicdr",
+    icon: IconBrandGithub,
+  },
+  {
+    name: "twitter",
+    label: "Twitter",
+    url: "https://twitter.com/tnsicdr",
+    icon: IconBrandTwitter,
+  },
+];
+---
+
+<div class="container">
+  <div>
+    <ul class="socials">
+      {
+        socialsList.map((social) => (
+          <li>
+            <a
+              href={social.url}
+              title={social.label}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              {social.icon ? <social.icon size={remFactor(1.5)} /> : social.label}
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <div class="copyright">Copyright &copy; 2023 code.tnsi. All rights reserved.</div>
+</div>
+<style lang="scss">
+  .container {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    padding: 1rem 2rem;
+  }
+
+  .socials {
+    display: flex;
+    flex-direction: row;
+    gap: 0.75rem;
+
+    a {
+      text-decoration: none;
+    }
+  }
+
+  .copyright {
+    text-align: center;
+  }
+
+  @media only screen and (min-width: 768px) {
+    .container {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+    }
+  }
+</style>

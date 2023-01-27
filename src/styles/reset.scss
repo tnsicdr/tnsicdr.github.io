@@ -1,0 +1,45 @@
+/*
+  Always show the scrollbar
+ */
+html {
+  overflow-y: scroll;
+}
+
+/*
+  Allow height to work
+ */
+html, body {
+  height: 100%;
+}
+
+/*
+  Remove default margin, and set consistent box sizing
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+  &::before, &::after {
+    box-sizing: border-box;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+img {
+  border: 0;
+}
+
+/* Typography */
+body {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  font-weight: normal;
+  overflow-wrap: break-word;
+}

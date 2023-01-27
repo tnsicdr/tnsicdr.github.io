@@ -1,0 +1,24 @@
+---
+const links = [{ label: "About", path: "/about" }];
+---
+
+<div class="topbar">
+  <div><a href="/" rel="prefetch">code.tnsi</a></div>
+  <ul>
+    {
+      links.map((link) => {
+        return <li><a href={link.path} rel="prefetch">{link.label}</a></li>;
+      })
+    }
+  </ul>
+</div>
+<style lang="scss">
+  .topbar {
+    align-items: center;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+  }
+</style>

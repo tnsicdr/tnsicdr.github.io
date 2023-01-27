@@ -1,0 +1,19 @@
+html {
+  background-color: var(--main-bg-color);
+  color: var(--text-color);
+  font-family: "Noto Sans", "Noto Sans JP", "Trebuchet MS", system-ui, sans-serif;
+}
+
+code {
+  font-family: Menlo, Monaco, Lucida Console, Liberation Mono,
+    DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace;
+}
+
+a {
+  color: var(--primary);
+  text-decoration: none;
+
+  &:hover {
+    color: var(--primary-hover);
+  }
+}
