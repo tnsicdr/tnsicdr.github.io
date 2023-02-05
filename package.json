@@ -13,6 +13,7 @@
   "dependencies": {
     "@astrojs/prefetch": "^0.1.2",
     "@astrojs/react": "^2.0.1",
+    "@astrojs/rss": "^2.1.0",
     "@fontsource/noto-sans": "^4.5.11",
     "@fontsource/noto-sans-jp": "^4.5.12",
     "@tabler/icons-react": "^2.1.2",
@@ -27,10 +28,12 @@
     "remark-parse": "^10.0.1",
     "remark-stringify": "^10.0.2",
     "remark-unlink": "^4.0.1",
+    "sanitize-html": "^2.9.0",
     "strip-markdown": "^5.0.0",
     "unified": "^10.1.2"
   },
   "devDependencies": {
+    "@types/sanitize-html": "^2.8.0",
     "sass": "^1.57.1"
   }
 }
