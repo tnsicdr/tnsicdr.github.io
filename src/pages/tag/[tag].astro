@@ -16,13 +16,21 @@ const publishedAndTaggedBlogPosts = await getCollection(
   "blog",
   ({ data }) => !data.draft && data.tags?.includes(tag)
 );
+const sortedByDate = publishedAndTaggedBlogPosts.sort((a, b) => {
+  const dateA = a.data.date;
+  const dateB = b.data.date;
+
+  if (dateA < dateB) return 1;
+  if (dateA > dateB) return -1;
+  return 0;
+});
 ---
 <Layout>
   <main>
     <h2 class="heading">Posts tagged with {tag}</h2>
     <ul>
       {
-        publishedAndTaggedBlogPosts.slice(0, 5).map(async (blogPost) => {
+        sortedByDate.slice(0, 5).map(async (blogPost) => {
           const { Content } = await blogPost.render();
           return (
             <li>
