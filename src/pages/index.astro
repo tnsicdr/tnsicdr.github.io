@@ -3,14 +3,25 @@ import Layout from "../layouts/Layout.astro";
 import { getCollection } from "astro:content";
 import PostArticle from "../components/Post/PostArticle.astro";
 
-const publishedBlogPosts = await getCollection("blog", ({data}) => !data.draft);
+const publishedBlogPosts = await getCollection(
+  "blog",
+  ({ data }) => !data.draft
+);
+const sortedByDate = publishedBlogPosts.sort((a, b) => {
+  const dateA = a.data.date;
+  const dateB = b.data.date;
+
+  if (dateA < dateB) return 1;
+  if (dateA > dateB) return -1;
+  return 0;
+});
 ---
 
 <Layout>
   <main>
     <ul>
       {
-        publishedBlogPosts.slice(0, 5).map(async (blogPost) => {
+        sortedByDate.slice(0, 5).map(async (blogPost) => {
           const { Content } = await blogPost.render();
           return (
             <li>
