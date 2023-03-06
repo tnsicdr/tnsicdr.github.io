@@ -1,7 +1,8 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import Layout from "../../layouts/Layout.astro";
 import { getCollection } from "astro:content";
-import PostArticle from "../components/Post/PostArticle.astro";
+import PostArticle from "../../components/Post/PostArticle.astro";
+import PostShort from "../../components/Post/PostShort.astro";
 
 const publishedBlogPosts = await getCollection(
   "blog",
@@ -21,11 +22,11 @@ const sortedByDate = publishedBlogPosts.sort((a, b) => {
   <main>
     <ul>
       {
-        sortedByDate.slice(0, 5).map(async (blogPost) => {
+        sortedByDate.map(async (blogPost) => {
           const { Content } = await blogPost.render();
           return (
             <li>
-              <PostArticle post={blogPost} excerpt />
+              <PostShort post={blogPost} />
             </li>
           );
         })
