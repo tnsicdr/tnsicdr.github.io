@@ -1,0 +1,44 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { getCollection } from "astro:content";
+import PostArticle from "../../components/Post/PostArticle.astro";
+import PostShort from "../../components/Post/PostShort.astro";
+
+const publishedBlogPosts = await getCollection(
+  "blog",
+  ({ data }) => !data.draft
+);
+const sortedByDate = publishedBlogPosts.sort((a, b) => {
+  const dateA = a.data.date;
+  const dateB = b.data.date;
+
+  if (dateA < dateB) return 1;
+  if (dateA > dateB) return -1;
+  return 0;
+});
+---
+
+<Layout>
+  <main>
+    <ul>
+      {
+        sortedByDate.map(async (blogPost) => {
+          const { Content } = await blogPost.render();
+          return (
+            <li>
+              <PostShort post={blogPost} />
+            </li>
+          );
+        })
+      }
+    </ul>
+  </main>
+</Layout>
+
+<style lang="scss">
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 100ch;
+  }
+</style>
