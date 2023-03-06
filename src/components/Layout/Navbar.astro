@@ -4,7 +4,7 @@ const links = [{ label: "About", path: "/about" }];
 
 <div class="topbar">
   <div><a href="/" rel="prefetch">code.tnsi</a></div>
-  <ul>
+  <ul class="links">
     {
       links.map((link) => {
         return <li><a href={link.path} rel="prefetch">{link.label}</a></li>;
@@ -20,5 +20,11 @@ const links = [{ label: "About", path: "/about" }];
     flex-direction: row;
     justify-content: space-between;
     padding: 1rem 2rem;
+  }
+  
+  .links {
+    display: flex;
+    flex-direction: row;
+    gap: 1rem;
   }
 </style>
