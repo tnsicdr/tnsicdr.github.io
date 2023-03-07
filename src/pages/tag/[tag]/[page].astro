@@ -44,17 +44,12 @@ const params = Astro.params;
         })
       }
     </ul>
-    {
-      import.meta.env.DEV ? (
-        <div>
-          paging
-          <ul>
-            {typedPage.url.prev ? <li>prev</li> : null}
-            {typedPage.url.next ? <li>next</li> : null}
-          </ul>
-        </div>
-      ) : null
-    }
+    <div>
+      <ul class="pages">
+        {typedPage.url.prev ? <li><a href={typedPage.url.prev} rel="prefetch">Previous</a></li> : <li />}
+        {typedPage.url.next ? <li><a href={typedPage.url.next} rel="prefetch">Next</a></li> : <li />}
+      </ul>
+    </div>
   </main>
 </Layout>
 <style lang="scss">
@@ -66,6 +61,12 @@ const params = Astro.params;
     .heading {
       font-weight: 600;
       margin-bottom: 1rem;
+    }
+
+    .pages {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
     }
   }
 </style>
