@@ -1,0 +1,72 @@
+---
+import type { GetStaticPathsOptions, Page } from "astro";
+import { CollectionEntry, getCollection } from "astro:content";
+import PostArticle from "../../../components/Post/PostArticle.astro";
+import Layout from "../../../layouts/Layout.astro";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const publishedPosts = await getCollection("blog", ({ data }) => !data.draft);
+  const publishedTags = (
+    await getCollection("blog", ({ data }) => !data.draft)
+  ).flatMap((post) => post.data.tags || []);
+
+  return publishedTags.map((tag) => {
+    const taggedPosts = publishedPosts.filter((post) =>
+      post.data.tags?.includes(tag)
+    );
+
+    return paginate(taggedPosts, {
+      params: { tag },
+      pageSize: 5,
+    });
+  });
+}
+
+const { page } = Astro.props;
+const typedPage = page as Page<CollectionEntry<"blog">>;
+const params = Astro.params;
+---
+
+<Layout>
+  <main>
+    <h2 class="heading">
+      Posts tagged with {params.tag}: {typedPage.currentPage}
+    </h2>
+    <ul>
+      {
+        typedPage.data.slice(0, 5).map(async (blogPost) => {
+          const { Content } = await blogPost.render();
+          return (
+            <li>
+              <PostArticle post={blogPost} excerpt />
+            </li>
+          );
+        })
+      }
+    </ul>
+    <div>
+      <ul class="pages">
+        {typedPage.url.prev ? <li><a href={typedPage.url.prev} rel="prefetch">Previous</a></li> : <li />}
+        {typedPage.url.next ? <li><a href={typedPage.url.next} rel="prefetch">Next</a></li> : <li />}
+      </ul>
+    </div>
+  </main>
+</Layout>
+<style lang="scss">
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 100ch;
+
+    .heading {
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .pages {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+  }
+</style>
