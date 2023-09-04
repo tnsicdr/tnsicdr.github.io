@@ -1,7 +1,7 @@
 {
-  "name": "@example/basics",
+  "name": "@tnsicdr/code-tnsi-site",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "astro dev",
@@ -11,32 +11,33 @@
     "astro": "astro"
   },
   "dependencies": {
-    "@astrojs/prefetch": "^0.2.1",
-    "@astrojs/react": "^2.1.1",
-    "@astrojs/rss": "^2.3.2",
-    "@fontsource/noto-sans": "^4.5.11",
-    "@fontsource/noto-sans-jp": "^4.5.12",
-    "@nanostores/react": "^0.5.0",
-    "@tabler/icons-react": "^2.7.0",
-    "@types/react": "^18.0.28",
-    "@types/react-dom": "^18.0.11",
-    "astro": "^2.2.0",
-    "autoprefixer": "^10.4.13",
-    "clsx": "^1.2.1",
-    "nanostores": "^0.8.1",
+    "@astrojs/prefetch": "^0.4.0",
+    "@astrojs/react": "^3.0.0",
+    "@astrojs/rss": "^3.0.0",
+    "@fontsource/noto-sans": "^5.0.11",
+    "@fontsource/noto-sans-jp": "^5.0.10",
+    "@nanostores/react": "^0.7.1",
+    "@tabler/icons-react": "^2.32.0",
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "astro": "^3.0.8",
+    "autoprefixer": "^10.4.15",
+    "clsx": "^2.0.0",
+    "nanostores": "^0.9.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "remark-gfm": "^3.0.1",
     "remark-html": "^15.0.2",
-    "remark-parse": "^10.0.1",
-    "remark-stringify": "^10.0.2",
+    "remark-parse": "^10.0.2",
+    "remark-stringify": "^10.0.3",
     "remark-unlink": "^4.0.1",
-    "sanitize-html": "^2.10.0",
-    "strip-markdown": "^5.0.0",
+    "sanitize-html": "^2.11.0",
+    "strip-markdown": "^5.0.1",
     "unified": "^10.1.2"
   },
   "devDependencies": {
-    "@types/sanitize-html": "^2.8.1",
-    "sass": "^1.58.3"
+    "@types/sanitize-html": "^2.9.0",
+    "sass": "^1.66.1",
+    "typescript": "^5.2.2"
   }
 }
