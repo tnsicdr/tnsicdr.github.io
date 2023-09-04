@@ -6,7 +6,7 @@ import remarkGfm from "remark-gfm";
 import remarkHtml from "remark-html";
 import sanitizeHtml from "sanitize-html";
 
-export async function get(context: any) {
+export async function GET(context: any) {
   const publishedBlogPosts = await getCollection(
     "blog",
     ({ data }) => !data.draft
