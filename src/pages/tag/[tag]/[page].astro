@@ -1,6 +1,7 @@
 ---
 import type { GetStaticPathsOptions, Page } from "astro";
-import { CollectionEntry, getCollection } from "astro:content";
+import type { CollectionEntry } from "astro:content";
+import { getCollection } from "astro:content";
 import PostArticle from "../../../components/Post/PostArticle.astro";
 import Layout from "../../../layouts/Layout.astro";
 
@@ -10,7 +11,7 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
     await getCollection("blog", ({ data }) => !data.draft)
   ).flatMap((post) => post.data.tags || []);
 
-  return publishedTags.map((tag) => {
+  return publishedTags.flatMap((tag) => {
     const taggedPosts = publishedPosts.filter((post) =>
       post.data.tags?.includes(tag)
     );
@@ -46,8 +47,28 @@ const params = Astro.params;
     </ul>
     <div>
       <ul class="pages">
-        {typedPage.url.prev ? <li><a href={typedPage.url.prev} rel="prefetch">Previous</a></li> : <li />}
-        {typedPage.url.next ? <li><a href={typedPage.url.next} rel="prefetch">Next</a></li> : <li />}
+        {
+          typedPage.url.prev ? (
+            <li>
+              <a href={typedPage.url.prev} rel="prefetch">
+                Previous
+              </a>
+            </li>
+          ) : (
+            <li />
+          )
+        }
+        {
+          typedPage.url.next ? (
+            <li>
+              <a href={typedPage.url.next} rel="prefetch">
+                Next
+              </a>
+            </li>
+          ) : (
+            <li />
+          )
+        }
       </ul>
     </div>
   </main>
