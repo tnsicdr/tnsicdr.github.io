@@ -1,7 +1,5 @@
 ---
 import "../styles/reset.scss";
-import "@fontsource/noto-sans";
-import "@fontsource/noto-sans-jp";
 import "../styles/colors.scss";
 import "../styles/base.scss";
 
@@ -12,7 +10,7 @@ export interface Props {
 const { title } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -27,14 +25,12 @@ const { title } = Astro.props;
 </html>
 <style is:global>
   :root {
-    --accent: 124, 58, 237;
-    --accent-gradient: linear-gradient(
-      45deg,
-      rgb(var(--accent)),
-      #da62c4 30%,
-      white 60%
-    );
   }
+
+  html {
+    font-family: system-ui, sans-serif;
+  }
+
   body {
     display: flex;
     flex-direction: column;

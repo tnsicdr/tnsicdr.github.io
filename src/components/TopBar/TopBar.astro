@@ -1,0 +1,61 @@
+---
+interface Props {
+  /** Title of the topbar */
+  siteTitle?: string;
+}
+
+const { siteTitle } = Astro.props;
+
+const links = [
+  { label: "Home", path: "/" },
+  { label: "Posts", path: "/posts" },
+  { label: "About", path: "/about" },
+];
+---
+
+<div class="top-bar">
+  <div class="branding">
+    <h1>{siteTitle}</h1>
+  </div>
+  <nav class="nav-menu">
+    <ul>
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.path}>{link.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</div>
+
+<style>
+  .top-bar {
+    display: grid;
+    grid-template-areas: "branding navMenu";
+    padding: 8px;
+  }
+
+  .branding {
+    grid-area: branding;
+
+    h1 {
+      font-size: 1em;
+      font-weight: bold;
+      margin: 0;
+    }
+  }
+
+  .nav-menu {
+    grid-area: navMenu;
+
+    > ul {
+      align-items: center;
+      display: flex;
+      flex-direction: row;
+      gap: 16px;
+      justify-content: flex-end;
+    }
+  }
+</style>

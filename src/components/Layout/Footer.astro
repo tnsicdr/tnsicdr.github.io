@@ -2,8 +2,8 @@
 import {
   IconBrandGithub,
   IconBrandTwitter,
-  TablerIconsProps,
-  IconRss
+  IconRss,
+  type TablerIconsProps,
 } from "@tabler/icons-react";
 import type { ReactNode } from "react";
 import { remFactor } from "../../shared/sizing/metrics";
@@ -36,7 +36,8 @@ const socialsList: SocialLink[] = [
     <ul class="socials">
       <li>
         <a href="/rss.xml" title="RSS" target="_blank" rel="prefetch">
-        <IconRss size={remFactor(1.5)} /></a>
+          <IconRss size={remFactor(1.5)} /></a
+        >
       </li>
       {
         socialsList.map((social) => (
@@ -47,14 +48,20 @@ const socialsList: SocialLink[] = [
               target="_blank"
               rel="noopener noreferrer"
             >
-              {social.icon ? <social.icon size={remFactor(1.5)} /> : social.label}
+              {social.icon ? (
+                <social.icon size={remFactor(1.5)} />
+              ) : (
+                social.label
+              )}
             </a>
           </li>
         ))
       }
     </ul>
   </div>
-  <div class="copyright">Copyright &copy; 2023 code.tnsi. All rights reserved.</div>
+  <div class="copyright">
+    Copyright &copy; 2023 code.tnsi. All rights reserved.
+  </div>
 </div>
 <style lang="scss">
   .container {
