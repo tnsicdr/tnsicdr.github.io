@@ -27,7 +27,17 @@ const contentExcerpt = await unified()
 
 <div>
   <div class="metadata">
-    <div class="title">{excerpt ? <a href={`/posts/${post.slug}`} rel="prefetch">{post.data.title}</a> : post.data.title}</div>
+    <div class="title">
+      {
+        excerpt ? (
+          <a href={`/posts/${post.slug}`} rel="prefetch">
+            {post.data.title}
+          </a>
+        ) : (
+          post.data.title
+        )
+      }
+    </div>
     <div class="date">
       <IconCalendar size={remFactor(1)} />{post.data.date.toLocaleDateString()}
     </div>
@@ -37,7 +47,11 @@ const contentExcerpt = await unified()
           <IconCategory size={remFactor(1)} />
           <ul class="tags">
             {post.data.tags.map((tag) => (
-              <li><a href={`/tag/${tag}`} rel="prefetch">{tag}</a></li>
+              <li>
+                <a href={`/tag/${tag}`} rel="prefetch">
+                  {tag}
+                </a>
+              </li>
             ))}
           </ul>
         </div>
@@ -49,7 +63,9 @@ const contentExcerpt = await unified()
       <div class="excerpt-container">
         <p class="excerpt">{contentExcerpt}</p>
         <div class="excerpt-actions">
-          <a href={`/posts/${post.slug}`} rel="prefetch">Read More</a>
+          <a href={`/posts/${post.slug}`} rel="prefetch">
+            Read More
+          </a>
         </div>
       </div>
     ) : (
@@ -89,7 +105,7 @@ const contentExcerpt = await unified()
       background-color: var(--widget-bg);
       border-radius: 0.25em;
       padding: 0em 0.25em;
-      
+
       a {
         color: var(--text-color);
       }
@@ -151,6 +167,12 @@ const contentExcerpt = await unified()
 
     ul {
       list-style: disc;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      padding-inline-start: 2em;
+    }
+
+    ol {
       margin-block-start: 1em;
       margin-block-end: 1em;
       padding-inline-start: 2em;
