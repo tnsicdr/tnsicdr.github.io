@@ -10,7 +10,7 @@ const links = [
     <button id="mobile-menu-toggle" class="menu-btn" data-toggled="false">
       &#9776;
     </button>
-    <div><a href="/" rel="prefetch">code.tnsi</a></div>
+    <div class="logo"><a href="/" rel="prefetch">code.tnsi</a></div>
     <div class="nav-menu">
       <ul class="links">
         {
@@ -52,18 +52,26 @@ const links = [
   }
 
   .topbar {
-    align-items: center;
     box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
     box-sizing: border-box;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    column-gap: 0.5rem;
+    display: grid;
+    grid-template-areas: "menuBtn logo";
+    grid-template-rows: 1fr;
+    grid-template-columns: minmax(min-content, max-content) 1fr;
     padding: 1rem 2rem;
     position: relative;
     z-index: 1;
   }
 
+  .logo {
+    align-self: center;
+    grid-area: logo;
+  }
+
   .menu-btn {
+    grid-area: menuBtn;
+
     background: none;
     border: none;
     color: currentColor;
@@ -81,6 +89,8 @@ const links = [
   }
 
   .menu-list {
+    grid-area: "navMenu";
+
     background-color: var(--main-bg-color);
     box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
     padding: 1rem;
@@ -91,6 +101,13 @@ const links = [
     &[data-toggled="false"] {
       display: none;
     }
+  }
+
+  .nav-menu {
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
   }
 
   .nav-menu > .links {
@@ -104,6 +121,10 @@ const links = [
   }
 
   @media screen and (min-width: 768px) {
+    .topbar {
+      grid-template-areas: "logo navMenu";
+    }
+
     .menu-btn {
       display: none;
     }
@@ -114,10 +135,6 @@ const links = [
 
     .menu-list {
       display: none;
-    }
-
-    .nav-menu {
-      display: block;
     }
 
     .nav-menu > .links {
