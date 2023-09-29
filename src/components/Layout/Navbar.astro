@@ -6,25 +6,27 @@ const links = [
 ---
 
 <div id="topnav" class="nav-container">
-  <div class="topbar">
-    <button id="mobile-menu-toggle" class="menu-btn" data-toggled="false">
-      &#9776;
-    </button>
-    <div class="logo"><a href="/" rel="prefetch">code.tnsi</a></div>
-    <div class="nav-menu">
-      <ul class="links">
-        {
-          links.map((link) => {
-            return (
-              <li>
-                <a href={link.path} rel="prefetch">
-                  {link.label}
-                </a>
-              </li>
-            );
-          })
-        }
-      </ul>
+  <div class="topbar-container">
+    <div class="topbar">
+      <button id="mobile-menu-toggle" class="menu-btn" data-toggled="false">
+        &#9776;
+      </button>
+      <div class="logo"><a href="/" rel="prefetch">code.tnsi</a></div>
+      <div class="nav-menu">
+        <ul class="links">
+          {
+            links.map((link) => {
+              return (
+                <li>
+                  <a href={link.path} rel="prefetch">
+                    {link.label}
+                  </a>
+                </li>
+              );
+            })
+          }
+        </ul>
+      </div>
     </div>
   </div>
   <div id="mobile-menu" class="menu-list" data-toggled="false">
@@ -84,7 +86,7 @@ const links = [
     transition: transform 0.5s;
 
     &[data-toggled="true"] {
-      transform: rotate(-90deg);
+      transform: rotate(90deg);
     }
   }
 
@@ -121,8 +123,15 @@ const links = [
   }
 
   @media screen and (min-width: 768px) {
+    .topbar-container {
+      box-shadow: 0 4px 4px -4px rgba(0, 0, 0, 0.5);
+    }
+
     .topbar {
+      box-shadow: none;
       grid-template-areas: "logo navMenu";
+      margin: 0 auto;
+      max-width: 100ch;
     }
 
     .menu-btn {
