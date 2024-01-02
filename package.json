@@ -14,8 +14,6 @@
     "@astrojs/prefetch": "^0.4.1",
     "@astrojs/react": "^3.0.9",
     "@astrojs/rss": "^4.0.1",
-    "@fontsource/noto-sans": "^5.0.11",
-    "@fontsource/noto-sans-jp": "^5.0.10",
     "@nanostores/react": "^0.7.1",
     "@tabler/icons-react": "^2.32.0",
     "@types/react": "^18.2.21",
