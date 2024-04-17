@@ -5,12 +5,13 @@ import BaseLayout from "./BaseLayout.astro";
 
 export interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
-<BaseLayout title={title}>
+<BaseLayout title={title} description={description}>
   <Navbar />
   <div class="page-content">
     <slot />
