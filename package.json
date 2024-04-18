@@ -36,7 +36,13 @@
   "devDependencies": {
     "@divriots/jampack": "^0.23.4",
     "@types/sanitize-html": "^2.9.0",
+    "postcss": "^8.4.38",
+    "postcss-flexbugs-fixes": "^5.0.2",
+    "postcss-import": "^16.1.0",
+    "postcss-nesting": "^12.1.1",
+    "postcss-preset-env": "^9.5.6",
     "sass": "^1.69.6",
-    "typescript": "^5.3.3"
+    "typescript": "^5.3.3",
+    "vitest": "^1.5.0"
   }
 }
