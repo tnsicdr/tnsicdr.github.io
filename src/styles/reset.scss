@@ -8,7 +8,8 @@ html {
 /*
   Allow height to work
  */
-html, body {
+html,
+body {
   height: 100%;
 }
 
@@ -20,11 +21,13 @@ html, body {
   margin: 0;
   padding: 0;
 
-  &::before, &::after {
+  &::before,
+  &::after {
     box-sizing: border-box;
   }
 }
 
+ol,
 ul {
   list-style: none;
 }
@@ -39,7 +42,13 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-weight: normal;
   overflow-wrap: break-word;
 }

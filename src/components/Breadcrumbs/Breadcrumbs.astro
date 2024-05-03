@@ -1,0 +1,50 @@
+---
+import type { Breadcrumb } from "../../shared/types/navigation";
+import { isExternalPath } from "../../shared/utils/route-utils";
+
+interface Props {
+  crumbs: Breadcrumb[];
+}
+
+const { crumbs } = Astro.props;
+---
+
+<div>
+  <ol class="breadcrumbs-list">
+    {
+      crumbs.map((crumb, index) => {
+        if (!crumb.path) {
+          return <li>{crumb.label}</li>;
+        }
+        const isExternal = isExternalPath(crumb.path);
+        return (
+          <li>
+            <a
+              href={crumb.path}
+              rel={isExternal ? "noopener" : undefined}
+              target={isExternal ? "_blank" : undefined}
+            >
+              {crumb.label}
+            </a>
+          </li>
+        );
+      })
+    }
+  </ol>
+</div>
+
+<style>
+  .breadcrumbs-list {
+    display: flex;
+    flex-direction: row;
+
+    & li + li {
+      margin-left: 0.25rem;
+
+      &::before {
+        content: "»";
+        margin-right: 0.25rem;
+      }
+    }
+  }
+</style>

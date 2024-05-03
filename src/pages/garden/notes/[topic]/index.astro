@@ -1,0 +1,68 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../../layouts/GardenLayout.astro";
+import {
+  getNoteParam,
+  getNoteTopics,
+} from "../../../../shared/utils/route-utils";
+import type { Breadcrumb } from "../../../../shared/types/navigation";
+import {
+  TopicDescription,
+  strings,
+} from "../../../../shared/constants/strings";
+import Breadcrumbs from "../../../../components/Breadcrumbs/Breadcrumbs.astro";
+import { capitalize } from "../../../../shared/utils/string-utils";
+
+export const getStaticPaths = (async () => {
+  const notes = await getCollection("notes");
+  const noteSlugs = notes.map((note) => note.slug);
+  const topics = getNoteTopics(noteSlugs);
+
+  return topics.map((topic) => ({
+    params: { topic: topic },
+    props: { topic },
+  }));
+}) satisfies GetStaticPaths;
+
+const { topic } = Astro.props;
+
+const notes = await getCollection("notes");
+const topicalNotes = notes.filter((note) => note.slug.startsWith(topic));
+
+const breadcrumbs: Breadcrumb[] = [
+  { label: strings.page.home, path: "/garden/" },
+  { label: strings.page.notes, path: "/garden/notes/" },
+  { label: topic },
+];
+
+const displayTitle = capitalize(topic);
+---
+
+<BaseLayout title={displayTitle}>
+  <Breadcrumbs crumbs={breadcrumbs} />
+  <h2>{displayTitle}</h2>
+  {
+    TopicDescription[topic] ? (
+      <p class="description">{TopicDescription[topic]}</p>
+    ) : null
+  }
+  <ul>
+    {
+      topicalNotes.map((note) => {
+        const slug = getNoteParam(note.slug);
+        return (
+          <li>
+            <a href={`/garden/notes/${topic}/${slug}`}>{note.data.title}</a>
+          </li>
+        );
+      })
+    }
+  </ul>
+</BaseLayout>
+
+<style>
+  .description {
+    margin-bottom: 1rem;
+  }
+</style>
