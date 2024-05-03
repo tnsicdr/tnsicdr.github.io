@@ -20,6 +20,19 @@ const { title, description } = Astro.props;
     <meta name="generator" content={Astro.generator} />
     {description ? <meta name="description" content={description} /> : null}
     <title>code.tnsi{title ? ` - ${title}` : null}</title>
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-0TGXMT2XLR"
+    ></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-0TGXMT2XLR");
+    </script>
   </head>
   <body>
     <slot />
