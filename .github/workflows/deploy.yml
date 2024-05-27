@@ -13,6 +13,7 @@ permissions:
   contents: read
   pages: write
   id-token: write
+  packages: read
 
 jobs:
   build:
@@ -21,6 +22,8 @@ jobs:
       - name: Checkout your repository using git
         uses: actions/checkout@v4
       - name: Install, build, and upload your site
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         uses: withastro/action@v2
         # with:
         # path: . # The root location of your Astro project inside the repository. (optional)
