@@ -17,6 +17,7 @@
     "@nanostores/persistent": "^0.10.1",
     "@nanostores/react": "^0.7.1",
     "@tabler/icons-react": "^2.45.0",
+    "@tnsicdr/react-bits": "^0.1.0",
     "astro": "^4.9.2",
     "autoprefixer": "^10.4.16",
     "clsx": "^2.1.0",
