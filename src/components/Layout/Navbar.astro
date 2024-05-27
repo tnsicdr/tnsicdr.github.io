@@ -11,14 +11,14 @@ const links = [
       <button id="mobile-menu-toggle" class="menu-btn" data-toggled="false">
         &#9776;
       </button>
-      <div class="logo"><a href="/" rel="prefetch">code.tnsi</a></div>
+      <div class="logo"><a href="/" data-astro-prefetch>code.tnsi</a></div>
       <div class="nav-menu">
         <ul class="links">
           {
             links.map((link) => {
               return (
                 <li>
-                  <a href={link.path} rel="prefetch">
+                  <a href={link.path} data-astro-prefetch>
                     {link.label}
                   </a>
                 </li>
@@ -35,7 +35,7 @@ const links = [
         links.map((link) => {
           return (
             <li>
-              <a href={link.path} rel="prefetch">
+              <a href={link.path} data-astro-prefetch="viewport">
                 {link.label}
               </a>
             </li>

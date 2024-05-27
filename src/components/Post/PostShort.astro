@@ -10,7 +10,7 @@ const { post } = Astro.props;
 
 <div>
   <div class="metadata">
-    <div class="title">{<a href={`/posts/${post.slug}`} rel="prefetch">{post.data.title}</a>}</div>
+    <div class="title">{<a href={`/posts/${post.slug}`} data-astro-prefetch>{post.data.title}</a>}</div>
     <div class="date">
       {post.data.date.toLocaleDateString()}
     </div>
