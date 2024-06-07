@@ -6,6 +6,7 @@ import {
 } from "@tabler/icons-react";
 import type { TablerIconsProps } from "@tabler/icons-react";
 import { remFactor } from "../../shared/sizing/metrics";
+import { VisuallyHidden } from "@tnsicdr/react-bits";
 
 interface SocialLink {
   name: string;
@@ -52,6 +53,7 @@ const socialsList: SocialLink[] = [
               ) : (
                 social.label
               )}
+              <VisuallyHidden>{social.label}</VisuallyHidden>
             </a>
           </li>
         ))

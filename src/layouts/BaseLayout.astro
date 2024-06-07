@@ -2,6 +2,7 @@
 import "../styles/reset.scss";
 import "../styles/colors.scss";
 import "../styles/base.scss";
+import "@tnsicdr/react-bits/styles.css";
 
 export interface Props {
   title?: string;
@@ -46,7 +47,9 @@ const { title, description } = Astro.props;
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
-    <slot />
+    <div class="react-bits">
+      <slot />
+    </div>
   </body>
 </html>
 <style is:global>
