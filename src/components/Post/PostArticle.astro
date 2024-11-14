@@ -30,7 +30,7 @@ const contentExcerpt = await unified()
     <div class={excerpt ? "title nowrap" : "title"}>
       {
         excerpt ? (
-          <a href={`/posts/${post.slug}`} data-astro-prefetch>
+          <a href={`/posts/${post.slug}`} data-astro-prefetch tabindex="0">
             {post.data.title}
           </a>
         ) : (
@@ -48,7 +48,7 @@ const contentExcerpt = await unified()
           <ul class="tags">
             {post.data.tags.map((tag) => (
               <li>
-                <a href={`/tag/${tag}`} data-astro-prefetch>
+                <a href={`/tag/${tag}`} data-astro-prefetch tabindex="0">
                   {tag}
                 </a>
               </li>
@@ -63,7 +63,7 @@ const contentExcerpt = await unified()
       <div class="excerpt-container">
         <p class="excerpt">{contentExcerpt}</p>
         <div class="excerpt-actions">
-          <a href={`/posts/${post.slug}`} data-astro-prefetch>
+          <a href={`/posts/${post.slug}`} data-astro-prefetch tabindex="0">
             Full Text
           </a>
         </div>

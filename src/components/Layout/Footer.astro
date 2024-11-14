@@ -35,7 +35,13 @@ const socialsList: SocialLink[] = [
   <div>
     <ul class="socials">
       <li>
-        <a href="/rss.xml" title="RSS" target="_blank" data-astro-prefetch>
+        <a
+          href="/rss.xml"
+          title="RSS"
+          target="_blank"
+          data-astro-prefetch
+          tabindex="0"
+        >
           <IconRss size={remFactor(1.5)} /></a
         >
       </li>
@@ -47,6 +53,7 @@ const socialsList: SocialLink[] = [
               title={social.label}
               target="_blank"
               rel="noopener noreferrer"
+              tabindex="0"
             >
               {social.icon ? (
                 <social.icon size={remFactor(1.5)} />
