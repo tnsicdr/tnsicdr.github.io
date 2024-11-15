@@ -1,6 +1,7 @@
 ---
 import "../styles/reset.scss";
-import "../styles/customizations.css";
+import "../styles/colors.scss";
+import "../styles/base.scss";
 import NavBar from "../components/Layout/GardenNavBar.astro";
 
 interface Props {
@@ -59,5 +60,11 @@ const { title } = Astro.props;
     height: 100%;
     min-height: 100%;
     width: 100%;
+  }
+
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 100ch;
   }
 </style>
