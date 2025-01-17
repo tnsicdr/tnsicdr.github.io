@@ -4,15 +4,16 @@ import {
   IconBrandTwitter,
   IconRss,
 } from "@tabler/icons-react";
-import type { TablerIconsProps } from "@tabler/icons-react";
+import type { IconProps as TablerIconsProps } from "@tabler/icons-react";
 import { remFactor } from "../../shared/sizing/metrics";
 import { VisuallyHidden } from "@tnsicdr/react-bits";
+import type { ReactNode } from "react";
 
 interface SocialLink {
   name: string;
   label: string;
   url: string;
-  icon?: (props: TablerIconsProps) => JSX.Element;
+  icon?: (props: TablerIconsProps) => ReactNode;
 }
 
 const socialsList: SocialLink[] = [
