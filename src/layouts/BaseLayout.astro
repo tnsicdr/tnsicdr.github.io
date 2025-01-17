@@ -47,11 +47,16 @@ const { title, description } = Astro.props;
         style="display:none;visibility:hidden"></iframe></noscript
     >
     <!-- End Google Tag Manager (noscript) -->
-    <div class="react-bits">
+    <div class="page react-bits">
       <slot />
     </div>
   </body>
 </html>
+<style>
+  .page {
+    height: 100%;
+  }
+</style>
 <style is:global>
   :root {
     --accent: 124, 58, 237;
