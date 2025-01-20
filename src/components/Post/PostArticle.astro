@@ -27,7 +27,17 @@ const contentExcerpt = await unified()
 
 <div>
   <div class="metadata">
-    <div class="title">{excerpt ? <a href={`/posts/${post.slug}`} rel="prefetch">{post.data.title}</a> : post.data.title}</div>
+    <div class={excerpt ? "title nowrap" : "title"}>
+      {
+        excerpt ? (
+          <a href={`/posts/${post.slug}`} data-astro-prefetch tabindex="0">
+            {post.data.title}
+          </a>
+        ) : (
+          post.data.title
+        )
+      }
+    </div>
     <div class="date">
       <IconCalendar size={remFactor(1)} />{post.data.date.toLocaleDateString()}
     </div>
@@ -37,7 +47,11 @@ const contentExcerpt = await unified()
           <IconCategory size={remFactor(1)} />
           <ul class="tags">
             {post.data.tags.map((tag) => (
-              <li><a href={`/tag/${tag}`} rel="prefetch">{tag}</a></li>
+              <li>
+                <a href={`/tag/${tag}`} data-astro-prefetch tabindex="0">
+                  {tag}
+                </a>
+              </li>
             ))}
           </ul>
         </div>
@@ -49,12 +63,31 @@ const contentExcerpt = await unified()
       <div class="excerpt-container">
         <p class="excerpt">{contentExcerpt}</p>
         <div class="excerpt-actions">
-          <a href={`/posts/${post.slug}`} rel="prefetch">Read More</a>
+          <a href={`/posts/${post.slug}`} data-astro-prefetch tabindex="0">
+            Full Text
+          </a>
         </div>
       </div>
     ) : (
       <div class="content-container">
         <Content />
+        <script
+          src="https://giscus.app/client.js"
+          data-repo="tnsicdr/tnsicdr.github.io"
+          data-repo-id="R_kgDOI2b4vA"
+          data-category="Posts"
+          data-category-id="DIC_kwDOI2b4vM4CmFy4"
+          data-mapping="pathname"
+          data-strict="0"
+          data-reactions-enabled="0"
+          data-emit-metadata="0"
+          data-input-position="top"
+          data-theme="catppuccin_mocha"
+          data-lang="en"
+          data-loading="lazy"
+          crossorigin="anonymous"
+          async
+        ></script>
       </div>
     )
   }
@@ -66,6 +99,10 @@ const contentExcerpt = await unified()
   .title {
     font-size: 2rem;
     font-weight: 600;
+  }
+  .nowrap {
+    overflow: hidden;
+    white-space: nowrap;
   }
   .date {
     align-items: center;
@@ -89,7 +126,7 @@ const contentExcerpt = await unified()
       background-color: var(--widget-bg);
       border-radius: 0.25em;
       padding: 0em 0.25em;
-      
+
       a {
         color: var(--text-color);
       }
@@ -151,6 +188,12 @@ const contentExcerpt = await unified()
 
     ul {
       list-style: disc;
+      margin-block-start: 1em;
+      margin-block-end: 1em;
+      padding-inline-start: 2em;
+    }
+
+    ol {
       margin-block-start: 1em;
       margin-block-end: 1em;
       padding-inline-start: 2em;

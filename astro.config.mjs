@@ -4,18 +4,11 @@ import { defineConfig } from "astro/config";
 import react from "@astrojs/react";
 
 // https://astro.build/config
-import prefetch from "@astrojs/prefetch";
-
-// https://astro.build/config
 export default defineConfig({
-  output: 'static',
+  output: "static",
+  prefetch: true,
   site: "https://code.tnsi.me",
-  integrations: [
-    react(),
-    prefetch({
-      throttle: 2,
-    }),
-  ],
+  integrations: [react()],
   markdown: {
     shikiConfig: {
       theme: "rose-pine-moon",

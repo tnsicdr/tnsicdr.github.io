@@ -1,30 +1,62 @@
 ---
 import "../styles/reset.scss";
-import "@fontsource/noto-sans";
-import "@fontsource/noto-sans-jp";
 import "../styles/colors.scss";
 import "../styles/base.scss";
+import "@tnsicdr/react-bits/styles.css";
 
 export interface Props {
   title?: string;
+  description?: string;
 }
 
-const { title } = Astro.props;
+const { title, description } = Astro.props;
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <meta name="generator" content={Astro.generator} />
+    {description ? <meta name="description" content={description} /> : null}
     <title>code.tnsi{title ? ` - ${title}` : null}</title>
+
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-5DPZ9P2W");
+    </script>
+    <!-- End Google Tag Manager -->
   </head>
   <body>
-    <slot />
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-5DPZ9P2W"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
+    <div class="page react-bits">
+      <slot />
+    </div>
   </body>
 </html>
+<style>
+  .page {
+    height: 100%;
+  }
+</style>
 <style is:global>
   :root {
     --accent: 124, 58, 237;

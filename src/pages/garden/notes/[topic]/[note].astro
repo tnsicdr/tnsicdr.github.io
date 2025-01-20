@@ -1,0 +1,49 @@
+---
+import type { GetStaticPaths } from "astro";
+import { getCollection, getEntryBySlug } from "astro:content";
+import BaseLayout from "../../../../layouts/GardenLayout.astro";
+import {
+  getNoteParam,
+  getNoteTopics,
+} from "../../../../shared/utils/route-utils";
+import type { Breadcrumb } from "../../../../shared/types/navigation";
+import { strings } from "../../../../shared/constants/strings";
+import Breadcrumbs from "../../../../components/Breadcrumbs/Breadcrumbs.astro";
+
+export const getStaticPaths = (async () => {
+  const notes = await getCollection("notes");
+  const noteSlugs = notes.map((note) => note.slug);
+  const topics = getNoteTopics(noteSlugs);
+
+  return topics.flatMap((topic) => {
+    const notesPerTopic = notes.filter((note) => note.slug.startsWith(topic));
+
+    return notesPerTopic.map((note) => {
+      const slug = getNoteParam(note.slug);
+      return {
+        params: { topic: topic, note: slug },
+        props: { topic, slug: note.slug },
+      };
+    });
+  });
+}) satisfies GetStaticPaths;
+
+const { topic, slug } = Astro.props;
+
+const note = await getEntryBySlug("notes", slug);
+
+const breadcrumbs: Breadcrumb[] = [
+  { label: strings.page.home, path: "/garden/" },
+  { label: strings.page.notes, path: "/garden/notes/" },
+  { label: topic, path: `/garden/notes/${topic}/` },
+  { label: note.data.title },
+];
+
+const { Content } = await note.render();
+---
+
+<BaseLayout title={note.data.title}>
+  <Breadcrumbs crumbs={breadcrumbs} />
+  <h2>{note.data.title}</h2>
+  <Content />
+</BaseLayout>

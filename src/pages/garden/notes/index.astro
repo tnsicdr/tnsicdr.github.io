@@ -1,0 +1,69 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../../layouts/GardenLayout.astro";
+import Breadcrumbs from "../../../components/Breadcrumbs/Breadcrumbs.astro";
+import { getNoteParam, getNoteTopics } from "../../../shared/utils/route-utils";
+import type { Breadcrumb } from "../../../shared/types/navigation";
+import { strings } from "../../../shared/constants/strings";
+import { capitalize } from "../../../shared/utils/string-utils";
+
+const notes = await getCollection("notes");
+const noteSlugs = notes.map((note) => note.slug);
+const topics = getNoteTopics(noteSlugs);
+
+const notesPerTopic = topics.map((topic) => ({
+  title: topic,
+  notes: notes.filter((note) => note.slug.startsWith(topic)).slice(0, 5),
+  hasLink: notes.filter((note) => note.slug.startsWith(topic)).length > 5,
+}));
+
+const breadcrumbs: Breadcrumb[] = [
+  { label: strings.page.home, path: "/garden/" },
+  { label: strings.page.notes },
+];
+---
+
+<BaseLayout title="Notes">
+  <Breadcrumbs crumbs={breadcrumbs} />
+  <h1>Notes</h1>
+  <p>
+    Notes will be sorted in somewhat broad topics below. Currently there isn't
+    any particular method for what is sorted where.
+  </p>
+  <ul class="topic-list">
+    {
+      notesPerTopic.map((topic) => (
+        <li>
+          <h2>{capitalize(topic.title)}</h2>
+          <ul class="note-list">
+            {topic.notes.map((note) => {
+              const slug = getNoteParam(note.slug);
+              return (
+                <li>
+                  <a href={`/garden/notes/${topic.title}/${slug}`}>
+                    {note.data.title}
+                  </a>
+                </li>
+              );
+            })}
+            {topic.hasLink ? (
+              <li>
+                <a href={`/garden/notes/${topic.title}`}>see more</a>
+              </li>
+            ) : null}
+          </ul>
+        </li>
+      ))
+    }
+  </ul>
+</BaseLayout>
+
+<style>
+  .topic-list {
+  }
+
+  .note-list {
+    list-style: square;
+    padding-inline-start: 2rem;
+  }
+</style>

@@ -25,7 +25,11 @@ const sortedByDate = publishedAndTaggedBlogPosts.sort((a, b) => {
   return 0;
 });
 ---
-<Layout>
+
+<Layout
+  title="Tags"
+  description="Tag index containing tagged content sorted by date"
+>
   <main>
     <h2 class="heading">Posts tagged with {tag}</h2>
     <ul>

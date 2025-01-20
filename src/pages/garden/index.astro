@@ -1,0 +1,39 @@
+---
+import Breadcrumbs from "../../components/Breadcrumbs/Breadcrumbs.astro";
+import BaseLayout from "../../layouts/GardenLayout.astro";
+import { strings } from "../../shared/constants/strings";
+import type { Breadcrumb } from "../../shared/types/navigation";
+
+const breadcrumbs: Breadcrumb[] = [{ label: strings.page.home }];
+---
+
+<BaseLayout title="index">
+  <Breadcrumbs crumbs={breadcrumbs} />
+  <h2>welcome to the garden</h2>
+  <div class="landing-text">
+    <p>
+      Welcome to my unorganized corner of the internet, where I ideate, record,
+      and learn in the open. Learn more about <a
+        href="https://maggieappleton.com/garden-history"
+        rel="noopener"
+        target="_blank">digital gardens here</a
+      >.
+    </p>
+    <p>
+      If you're looking for more organized content written with intent, you may
+      be looking for my <a href="https://code.tnsi.me/">blog</a>. Otherwise,
+      pardon the dust and chaos and take a look at my <a href="/garden/notes"
+        >notes</a
+      >. Currently this is under construction and doesn't have any actual
+      content.
+    </p>
+  </div>
+</BaseLayout>
+
+<style>
+  .landing-text {
+    display: grid;
+    gap: 0.5rem;
+    padding: 0.25rem;
+  }
+</style>

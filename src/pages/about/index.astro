@@ -2,7 +2,10 @@
 import Layout from "../../layouts/Layout.astro";
 ---
 
-<Layout>
+<Layout
+  title="About"
+  description={"I'm Tensei, a software developer focused primarily in frontend development with JavaScript, TypeScript, and React."}
+>
   <main>
     <h2>About</h2>
     <h3>Me</h3>
@@ -39,7 +42,7 @@ import Layout from "../../layouts/Layout.astro";
       is built with <a
         href="https://astro.build/"
         target="_blank"
-        rel="noopener">Astro 2.0</a
+        rel="noopener">Astro</a
       >, but it was previously implemented using <a
         href="https://www.gatsbyjs.com/"
         target="_blank"
@@ -59,11 +62,22 @@ import Layout from "../../layouts/Layout.astro";
     padding: 1.5rem;
     max-width: 100ch;
 
-    p, h1, h2, h3, h4, h5, h6 {
+    p,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       margin-bottom: 1em;
     }
 
-    h1, h2, h3, h4, h5, h6 {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
       font-weight: 600;
     }
 

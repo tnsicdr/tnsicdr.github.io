@@ -2,17 +2,34 @@
 import { getCollection } from "astro:content";
 import PostArticle from "../../components/Post/PostArticle.astro";
 import Layout from "../../layouts/Layout.astro";
+import { unified } from "unified";
+import remarkParse from "remark-parse";
+import remarkGfm from "remark-gfm";
+import remarkStringify from "remark-stringify";
+import stripMarkdown from "strip-markdown";
+import remarkUnlink from "remark-unlink";
+
 export async function getStaticPaths() {
   const entries = await getCollection("blog");
   return entries.map((entry) => ({
     params: { slug: entry.slug },
     props: { entry },
   }));
-};
+}
 
 const { entry } = Astro.props;
+const metaTitle = entry.data.title;
+const contentExcerpt = await unified()
+  .use(remarkParse)
+  .use(remarkUnlink)
+  .use(remarkGfm)
+  .use(stripMarkdown)
+  .use(remarkStringify)
+  .process(entry.body);
+const metaDescription = (contentExcerpt.value as string).substring(0, 200);
 ---
-<Layout>
+
+<Layout title={entry.data.title} description={metaDescription}>
   <main>
     <PostArticle post={entry} />
   </main>

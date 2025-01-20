@@ -2,17 +2,18 @@
 import {
   IconBrandGithub,
   IconBrandTwitter,
-  TablerIconsProps,
-  IconRss
+  IconRss,
 } from "@tabler/icons-react";
-import type { ReactNode } from "react";
+import type { IconProps as TablerIconsProps } from "@tabler/icons-react";
 import { remFactor } from "../../shared/sizing/metrics";
+import { VisuallyHidden } from "@tnsicdr/react-bits";
+import type { ReactNode } from "react";
 
 interface SocialLink {
   name: string;
   label: string;
   url: string;
-  icon?: (props: TablerIconsProps) => JSX.Element;
+  icon?: (props: TablerIconsProps) => ReactNode;
 }
 
 const socialsList: SocialLink[] = [
@@ -25,7 +26,7 @@ const socialsList: SocialLink[] = [
   {
     name: "twitter",
     label: "Twitter",
-    url: "https://twitter.com/tnsicdr",
+    url: "https://x.com/tnsicdr",
     icon: IconBrandTwitter,
   },
 ];
@@ -35,8 +36,15 @@ const socialsList: SocialLink[] = [
   <div>
     <ul class="socials">
       <li>
-        <a href="/rss.xml" title="RSS" target="_blank" rel="prefetch">
-        <IconRss size={remFactor(1.5)} /></a>
+        <a
+          href="/rss.xml"
+          title="RSS"
+          target="_blank"
+          data-astro-prefetch
+          tabindex="0"
+        >
+          <IconRss size={remFactor(1.5)} /></a
+        >
       </li>
       {
         socialsList.map((social) => (
@@ -46,15 +54,23 @@ const socialsList: SocialLink[] = [
               title={social.label}
               target="_blank"
               rel="noopener noreferrer"
+              tabindex="0"
             >
-              {social.icon ? <social.icon size={remFactor(1.5)} /> : social.label}
+              {social.icon ? (
+                <social.icon size={remFactor(1.5)} />
+              ) : (
+                social.label
+              )}
+              <VisuallyHidden>{social.label}</VisuallyHidden>
             </a>
           </li>
         ))
       }
     </ul>
   </div>
-  <div class="copyright">Copyright &copy; 2023 code.tnsi. All rights reserved.</div>
+  <div class="copyright">
+    Copyright &copy; 2024 code.tnsi. All rights reserved.
+  </div>
 </div>
 <style lang="scss">
   .container {
