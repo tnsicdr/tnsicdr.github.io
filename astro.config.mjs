@@ -14,4 +14,7 @@ export default defineConfig({
       theme: "rose-pine-moon",
     },
   },
+  redirects: {
+    "/about": "/pages/about"
+  }
 });
