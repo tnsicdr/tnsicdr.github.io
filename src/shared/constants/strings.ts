@@ -5,6 +5,8 @@ export const TopicDescription: Record<string, string> = {
     "General collection of notes and instructions on doing things, primarily related to computing.",
   javascript:
     "Items pertaining to JavaScript, including NodeJS and other runtimes, but not frameworks like React.",
+  raspberrypi:
+    "The legendary single board computer that made computing accessible.",
   react: "ReactJS, the framework, the myth, the legend.",
   typescript:
     "Notes with TypeScript as a focus. Might have some JavaScript mixed in.",
